@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello world</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.12.0/dist/tabler-icons.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body data-theme="light">
+    <div class="container max-w-screen-md mx-auto px-4">
+      <div
+        class="flex flex-col min-h-96 py-20 items-center justify-center text-center space-y-8"
+      >
+        <h1 class="text-5xl font-bold text-neutral-700 leading-tight">
+          A todo list app for your monthly expenses
+        </h1>
+        <h2 class="text-3xl text-neutral-500 leading-tight">
+          See your spending clearly, never miss a bill, and say goodbye to
+          financial stress
+        </h2>
+
+        <button class="btn btn-primary btn-lg">
+          Get Early Access - Sign Up Now
+        </button>
+      </div>
+    </div>
+
+    <div class="container max-w-screen-lg mx-auto px-4 py-12">
+      <h3 class="text-3xl text-center font-bold text-neutral-700">
+        How does trackexpense works
+      </h3>
+
+      <p class="text-center text-base">
+        trackexpense is a simple, easy-to-use app that helps you keep track of
+        your monthly expenses. You add your bills and it automatically resets
+        every month.
+      </p>
+    </div>
+
+    <div class="container max-w-screen-md mx-auto px-4">
+      <div class="py-20">
+        <h3 class="text-base text-center text-neutral-500">
+          Benefits of using trackexpense
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="card">
+            <div class="card-body">
+              <i class="ti ti-bell text-5xl mb-3"></i>
+              <h4 class="card-title">Never Miss a Bill Again</h4>
+              <p>
+                Set up automatic bill reminders and receive timely notifications
+                so you never miss a payment again.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <i class="ti ti-x text-5xl mb-3"></i>
+              <h4 class="card-title">No More Duplicate Payments</h4>
+              <p>
+                Prevent accidental overpayments by clearly seeing which bills
+                are paid and which are pending.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <i class="ti ti-category text-5xl mb-3"></i>
+              <h4 class="card-title">Categorize Your Spending</h4>
+              <p>
+                Choose from predefined categories or create your own for
+                personalized tracking.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <i class="ti ti-chart-pie-2 text-5xl mb-3"></i>
+              <h4 class="card-title">Visualize Your Budget</h4>
+              <p>
+                See exactly where your money's going with clear and insightful
+                graphs.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <i class="ti ti-history text-5xl mb-3"></i>
+              <h4 class="card-title">Review Spending History</h4>
+              <p>
+                Review previous months' expenses, spot any unsettled items, and
+                track progress towards your financial goals.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <i class="ti ti-wand text-5xl mb-3"></i>
+              <h4 class="card-title">AI-Powered Insights</h4>
+              <p>
+                Receive personalized, AI-generated insights and recommendations
+                to optimize your budget.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container max-w-screen-md mx-auto px-4">
+      <form action="" class="py-12 space-y-2">
+        <h4 class="text-3xl">Join the waitlist.</h4>
+
+        <div class="flex gap-4">
+          <label class="input input-bordered flex items-center gap-2 w-full">
+            <input type="text" class="grow" placeholder="Your email address" />
+          </label>
+          <button class="btn btn-primary">Join Waitlist</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

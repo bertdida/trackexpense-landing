@@ -43,7 +43,9 @@
           <a href="" class="btn btn-ghost text-lg">TrackExpense</a>
         </div>
         <div class="navbar-end">
-          <a class="btn btn-primary"> Join the Waitlist </a>
+          <button class="btn btn-primary" data-waitlist="true">
+            Join the Waitlist
+          </button>
         </div>
       </header>
     </div>
@@ -64,14 +66,14 @@
           financial stress
         </h2>
 
-        <button class="btn btn-primary md:btn-lg">
+        <button class="btn btn-primary md:btn-lg" data-waitlist="true">
           Get Early Access - Sign Up Now
         </button>
       </div>
     </div>
 
     <div class="container max-w-screen-md mx-auto px-4">
-      <div class="py-20">
+      <div class="">
         <h3 class="text-base text-center text-neutral-500">
           Benefits of using TrackExpense
         </h3>
@@ -145,6 +147,62 @@
       </div>
     </div>
 
+    <div>
+      <div class="container max-w-screen-md mx-auto px-4 gap-8">
+        <div class="py-20 grid gap-8 items-center">
+          <div class="space-y-4">
+            <h3 class="text-3xl font-bold text-neutral-700 leading-tight">
+              Pricing
+            </h3>
+            <p class="text-base text-neutral-500">
+              Free for your first ten expenses or subscribe to our premium for
+              unlimited.
+            </p>
+          </div>
+
+          <div>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="card bg-gray-100">
+                <div class="card-body">
+                  <i class="ti ti-seeding text-5xl text-green-500"></i>
+                  <h4 class="card-title font-bold">Free</h4>
+                  <p class="text-2xl font-bold mb-2">₱0/forever</p>
+                  <ul>
+                    <li>
+                      <i class="ti ti-check text-lg text-blue-700"></i>
+                      <span class="font-bold">10 expenses</span>
+                    </li>
+                    <li>
+                      <i class="ti ti-check text-lg text-blue-700"></i>
+                      <span class="font-bold">All the features</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="card bg-gray-100">
+                <div class="card-body">
+                  <i class="ti ti-star text-5xl text-yellow-500"></i>
+                  <h4 class="card-title font-bold">Premium</h4>
+                  <p class="text-2xl font-bold mb-2">₱49/mo</p>
+                  <ul>
+                    <li>
+                      <i class="ti ti-check text-lg text-blue-700"></i>
+                      <span class="font-bold">Unlimited expenses</span>
+                    </li>
+                    <li>
+                      <i class="ti ti-check text-lg text-blue-700"></i>
+                      <span class="font-bold">All the features</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div
       class="marquee overflow-hidden flex py-8"
       data-mc-speed="10"
@@ -160,7 +218,7 @@
       <div
         class="container min-h-[500px] max-w-screen-md mx-auto px-4 flex items-center"
       >
-        <form action="" class="space-y-8 w-full">
+        <form id="waitlistform" action="" class="space-y-8 w-full">
           <div class="space-y-3">
             <h4
               class="text-3xl text-center font-bold leading-tight text-neutral-700"
@@ -179,6 +237,7 @@
               class="input md:input-lg input-bordered flex items-center gap-2 w-full md:w-1/2"
             >
               <input
+                id="email"
                 type="email"
                 class="grow"
                 placeholder="Your email address"
@@ -191,6 +250,16 @@
         </form>
       </div>
     </div>
+
+    <footer>
+      <div class="container mx-auto px-4 py-8 text-center">
+        <p class="text-neutral-700">TrackExpense 2024. All rights reserved.</p>
+        <span class="text-sm text-neutral-500"
+          >Made with <i class="text-red-500 ti ti-heart-filled"></i> by
+          <a href="https://bertdida.dev/" target="_blank">bertdida</a>
+        </span>
+      </div>
+    </footer>
   </body>
 
   <script type="module">
@@ -201,13 +270,21 @@
     document.addEventListener("DOMContentLoaded", function () {
       gsap.registerPlugin(ScrollTrigger);
       MarqueeContent.registerGSAP(gsap, ScrollTrigger);
-
       document.querySelectorAll(".marquee").forEach((element) => {
-        const marquee = new MarqueeContent({
-          element,
-        });
-
+        const marquee = new MarqueeContent({ element });
         marquee.init();
+      });
+
+      const buttons = document.querySelectorAll("[data-waitlist]");
+      const form = document.getElementById("waitlistform");
+      const email = document.getElementById("email");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", async (event) => {
+          event.preventDefault();
+          form.scrollIntoView();
+          email.focus();
+        });
       });
     });
   </script>

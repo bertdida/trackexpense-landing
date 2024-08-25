@@ -37,37 +37,37 @@
     </script>
   </head>
   <body data-theme="light">
+    <div class="container bg-base-100 mx-auto px-4">
+      <header class="navbar px-0">
+        <div class="navbar-start">
+          <a href="" class="btn btn-ghost text-lg">TrackExpense</a>
+        </div>
+        <div class="navbar-end">
+          <a class="btn btn-primary"> Join the Waitlist </a>
+        </div>
+      </header>
+    </div>
+
     <div class="container max-w-screen-md mx-auto px-4">
       <div
         class="flex flex-col min-h-[80vh] py-20 items-center justify-center text-center space-y-8"
       >
-        <h1 class="text-5xl font-bold text-neutral-700 leading-tight">
-          A todo list app for your <br />monthly expenses
+        <h1
+          class="text-4xl md:text-5xl font-bold text-neutral-700 leading-tight"
+        >
+          A to-do list app for your <br class="hidden md:block" /><span
+            >monthly expenses</span
+          >
         </h1>
-        <h2 class="text-3xl text-neutral-500 leading-tight">
+        <h2 class="text-2xl md:text-3xl text-neutral-500 leading-tight">
           See your spending clearly, never miss a bill, and say goodbye to
           financial stress
         </h2>
 
-        <button class="btn btn-primary btn-lg">
+        <button class="btn btn-primary md:btn-lg">
           Get Early Access - Sign Up Now
         </button>
       </div>
-    </div>
-
-    <div class="container max-w-screen-lg mx-auto px-4 py-12 space-y-4">
-      <h3 class="text-3xl text-center font-bold text-neutral-700">
-        How does TrackExpense works
-      </h3>
-
-      <p class="text-center text-base">
-        TrackExpense is like a todo list, but for your monthly expenses. Add
-        your expenses as to-do items, mark them as "Settled" once paid, and the
-        app automatically resets them to "Pending" at the beginning of each
-        month.
-      </p>
-
-      <p class="text-center text-base">Learn more about the features below.</p>
     </div>
 
     <div class="container max-w-screen-md mx-auto px-4">
@@ -75,7 +75,7 @@
         <h3 class="text-base text-center text-neutral-500">
           Benefits of using TrackExpense
         </h3>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-2">
           <div class="card">
             <div class="card-body">
               <i class="ti ti-bell text-5xl mb-3"></i>
@@ -145,17 +145,70 @@
       </div>
     </div>
 
-    <div class="container max-w-screen-md mx-auto px-4">
-      <form action="" class="py-12 space-y-2">
-        <h4 class="text-3xl">Join the waitlist.</h4>
+    <div
+      class="marquee overflow-hidden flex py-8"
+      data-mc-speed="10"
+      data-mc-direction="rtl"
+      role="marquee"
+    >
+      <div class="text-5xl whitespace-nowrap uppercase text-neutral-700">
+        Launching Soon *&nbsp;
+      </div>
+    </div>
 
-        <div class="flex gap-4">
-          <label class="input input-bordered flex items-center gap-2 w-full">
-            <input type="text" class="grow" placeholder="Your email address" />
-          </label>
-          <button class="btn btn-primary">Join Waitlist</button>
-        </div>
-      </form>
+    <div class="bg-red-100">
+      <div
+        class="container min-h-[500px] max-w-screen-md mx-auto px-4 flex items-center"
+      >
+        <form action="" class="space-y-8 w-full">
+          <div class="space-y-3">
+            <h4
+              class="text-3xl text-center font-bold leading-tight text-neutral-700"
+            >
+              Ready to take control of your finances?
+            </h4>
+
+            <p class="text-base text-neutral-500 text-center">
+              Don't let another month go by without a clear picture of your
+              spending. Sign up now to get early access to TrackExpense.
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row justify-center gap-2">
+            <label
+              class="input md:input-lg input-bordered flex items-center gap-2 w-full md:w-1/2"
+            >
+              <input
+                type="email"
+                class="grow"
+                placeholder="Your email address"
+              />
+            </label>
+            <button type="button" class="btn md:btn-lg btn-primary">
+              Join Waitlist
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
+
+  <script type="module">
+    import gsap from "https://esm.sh/gsap";
+    import ScrollTrigger from "https://esm.sh/gsap/ScrollTrigger";
+    import MarqueeContent from "https://esm.sh/marquee-content";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      gsap.registerPlugin(ScrollTrigger);
+      MarqueeContent.registerGSAP(gsap, ScrollTrigger);
+
+      document.querySelectorAll(".marquee").forEach((element) => {
+        const marquee = new MarqueeContent({
+          element,
+        });
+
+        marquee.init();
+      });
+    });
+  </script>
 </html>

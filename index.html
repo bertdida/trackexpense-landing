@@ -35,6 +35,25 @@
         },
       };
     </script>
+
+    <style>
+      .bg-features {
+        --size: 100vh;
+        --color: rgb(59, 130, 246);
+        --shadow-size: 500px;
+
+        position: absolute;
+        width: var(--size);
+        height: var(--size);
+        box-shadow: 0 0 0 var(--shadow-size) var(--color);
+        background-color: var(--color);
+        border-radius: var(--size);
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% - 40%);
+        z-index: 1;
+      }
+    </style>
   </head>
   <body data-theme="light">
     <div class="container bg-base-100 mx-auto px-4">
@@ -72,13 +91,10 @@
       </div>
     </div>
 
-    <div class="container max-w-screen-md mx-auto px-4">
-      <div class="">
-        <h3 class="text-base text-center text-neutral-500">
-          Benefits of using TrackExpense
-        </h3>
-        <div class="grid md:grid-cols-2">
-          <div class="card">
+    <div class="relative overflow-hidden">
+      <div class="container max-w-screen-md mx-auto px-4 z-10 relative py-20">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <i class="ti ti-bell text-5xl mb-3"></i>
               <h4 class="card-title">Never Miss a Bill Again</h4>
@@ -89,7 +105,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <i class="ti ti-x text-5xl mb-3"></i>
               <h4 class="card-title">No More Duplicate Payments</h4>
@@ -100,7 +116,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <i class="ti ti-category text-5xl mb-3"></i>
               <h4 class="card-title">Categorize Your Spending</h4>
@@ -111,7 +127,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <i class="ti ti-chart-pie-2 text-5xl mb-3"></i>
               <h4 class="card-title">Visualize Your Budget</h4>
@@ -122,7 +138,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <i class="ti ti-history text-5xl mb-3"></i>
               <h4 class="card-title">Review Spending History</h4>
@@ -133,7 +149,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <i class="ti ti-wand text-5xl mb-3"></i>
               <h4 class="card-title">AI-Powered Insights</h4>
@@ -144,12 +160,21 @@
             </div>
           </div>
         </div>
+
+        <button
+          class="btn md:btn-lg mt-20 mx-auto block shadow-xl"
+          data-waitlist="true"
+        >
+          Join the Waitlist
+        </button>
       </div>
+
+      <span class="bg-features"></span>
     </div>
 
     <div>
       <div class="container max-w-screen-md mx-auto px-4 gap-8">
-        <div class="py-20 grid gap-8 items-center">
+        <div class="py-56 grid gap-8 items-center">
           <div class="space-y-4">
             <h3 class="text-3xl font-bold text-neutral-700 leading-tight">
               Pricing
@@ -168,13 +193,13 @@
                   <h4 class="card-title font-bold">Free</h4>
                   <p class="text-2xl font-bold mb-2">₱0/forever</p>
                   <ul>
-                    <li>
+                    <li class="flex items-center gap-1">
                       <i class="ti ti-check text-lg text-blue-700"></i>
-                      <span class="font-bold">10 expenses</span>
+                      <span>10 expenses</span>
                     </li>
-                    <li>
+                    <li class="flex items-center gap-1">
                       <i class="ti ti-check text-lg text-blue-700"></i>
-                      <span class="font-bold">All the features</span>
+                      <span>All the features</span>
                     </li>
                   </ul>
                 </div>
@@ -186,13 +211,13 @@
                   <h4 class="card-title font-bold">Premium</h4>
                   <p class="text-2xl font-bold mb-2">₱49/mo</p>
                   <ul>
-                    <li>
+                    <li class="flex items-center gap-1">
                       <i class="ti ti-check text-lg text-blue-700"></i>
-                      <span class="font-bold">Unlimited expenses</span>
+                      <span>Unlimited expenses</span>
                     </li>
-                    <li>
+                    <li class="flex items-center gap-1">
                       <i class="ti ti-check text-lg text-blue-700"></i>
-                      <span class="font-bold">All the features</span>
+                      <span>All the features</span>
                     </li>
                   </ul>
                 </div>

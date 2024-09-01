@@ -35,6 +35,19 @@
         },
       };
     </script>
+
+    <style>
+      .form {
+      }
+      .form input {
+        box-shadow: 0 1px 1px #d5d5d5, 0 0 0 9px #ededec;
+      }
+      .form input:focus {
+        outline: 1px solid #ffdea6;
+        box-shadow: 0 0 0 9px #fff8e9;
+        outline-offset: 0;
+      }
+    </style>
   </head>
   <body data-theme="light">
     <div class="container max-w-screen-md mx-auto px-4">
@@ -57,24 +70,22 @@
           Don't let another month go by without a clear picture of your spending
         </h2>
 
-        <div class="flex flex-col md:flex-row justify-center gap-2 w-full">
-          <label
-            class="input input-lg input-bordered flex items-center gap-2 w-full md:w-1/2"
-          >
-            <input
-              id="email"
-              type="email"
-              class="grow"
-              placeholder="Your email address"
-            />
-          </label>
+        <form
+          class="form flex flex-col md:flex-row gap-4 w-full relative md:items-center md:max-w-[500px] mx-auto !mt-12"
+        >
+          <input
+            required
+            type="email"
+            class="grow outline-none pl-6 rounded-full min-h-[58px] md:min-h-[68px] text-neutral-700"
+            placeholder="Your email address"
+          />
           <button
-            type="button"
-            class="btn btn-lg bg-gradient-to-tr from-pink-500 to-yellow-500 text-white"
+            type="submit"
+            class="btn bg-gradient-to-tr from-pink-500 to-yellow-500 text-white rounded-full md:absolute right-1 min-h-[60px] text-base px-5"
           >
             Join the Waitlist
           </button>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -254,7 +265,7 @@
             </p>
 
             <button
-              class="btn btn-lg bg-gradient-to-tr from-pink-500 to-yellow-500 text-white"
+              class="btn btn-lg bg-gradient-to-tr from-pink-500 to-yellow-500 text-white rounded-full"
             >
               Join the Waitlist
             </button>
@@ -416,7 +427,7 @@
       <div
         class="container min-h-[500px] max-w-screen-md mx-auto px-4 flex items-center"
       >
-        <form id="waitlistform" action="" class="space-y-8 w-full">
+        <div class="space-y-8 w-full">
           <div class="space-y-3">
             <h4
               class="text-3xl text-center font-bold leading-tight text-neutral-700"
@@ -430,25 +441,23 @@
             </p>
           </div>
 
-          <div class="flex flex-col md:flex-row justify-center gap-2">
-            <label
-              class="input md:input-lg input-bordered flex items-center gap-2 w-full md:w-1/2"
-            >
-              <input
-                id="email"
-                type="email"
-                class="grow"
-                placeholder="Your email address"
-              />
-            </label>
+          <form
+            class="form flex flex-col md:flex-row gap-4 w-full relative md:items-center md:max-w-[500px] mx-auto"
+          >
+            <input
+              required
+              type="email"
+              class="grow outline-none pl-6 rounded-full min-h-[58px] md:min-h-[68px] text-neutral-700"
+              placeholder="Your email address"
+            />
             <button
-              type="button"
-              class="btn md:btn-lg bg-gradient-to-tr from-pink-500 to-yellow-500 text-white"
+              type="submit"
+              class="btn bg-gradient-to-tr from-pink-500 to-yellow-500 text-white rounded-full md:absolute right-1 min-h-[60px] text-base px-5"
             >
-              Join Waitlist
+              Join the Waitlist
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -464,18 +473,6 @@
   </body>
 
   <script type="module">
-    document.addEventListener("DOMContentLoaded", function () {
-      const buttons = document.querySelectorAll("[data-waitlist]");
-      const form = document.getElementById("waitlistform");
-      const email = document.getElementById("email");
-
-      buttons.forEach((button) => {
-        button.addEventListener("click", async (event) => {
-          event.preventDefault();
-          form.scrollIntoView();
-          email.focus();
-        });
-      });
-    });
+    document.addEventListener("DOMContentLoaded", function () {});
   </script>
 </html>

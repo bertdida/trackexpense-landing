@@ -35,25 +35,6 @@
         },
       };
     </script>
-
-    <style>
-      .bg-features {
-        --size: 100vh;
-        --color: rgb(59, 130, 246);
-        --shadow-size: 500px;
-
-        position: absolute;
-        width: var(--size);
-        height: var(--size);
-        box-shadow: 0 0 0 var(--shadow-size) var(--color);
-        background-color: var(--color);
-        border-radius: var(--size);
-        left: 50%;
-        transform: translateX(-50%);
-        top: calc(100% - 40%);
-        z-index: 1;
-      }
-    </style>
   </head>
   <body data-theme="light">
     <div class="container max-w-screen-md mx-auto px-4">
@@ -100,10 +81,10 @@
     <div class="py-20 bg-[#fffcf4]">
       <div class="container max-w-screen-lg mx-auto px-4 space-y-16">
         <h2 class="text-2xl md:text-3xl text-neutral-700 text-center">
-          Budgeting Made<br class="md:hidden" />
+          Budgeting made<br class="md:hidden" />
           <span
             class="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-bold"
-            >Simple & Effective</span
+            >simple & effective</span
           >
         </h2>
         <div class="grid md:grid-cols-3 gap-20">
@@ -213,7 +194,7 @@
             <h3 class="text-2xl md:text-3xl text-neutral-700">
               <span
                 class="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-bold"
-                >Getting Started</span
+                >Getting started</span
               >
               <br />
               <span>as easy as 1-2-3</span>
@@ -230,8 +211,8 @@
                     Just like your favorite to-do app
                   </h4>
                   <p class="">
-                    Track every penny spent, whether it's a big bill, a small
-                    treat, a one-time purchase, or a recurring payment.
+                    Effortlessly enter every expense, whether it's a big bill, a
+                    small treat, a one-time purchase, or a recurring payment.
                   </p>
                 </div>
               </li>
@@ -242,11 +223,11 @@
                 >
                 <div class="space-y-2 relative -top-[5px]">
                   <h4 class="text-lg font-bold text-neutral-700">
-                    Check Off Those Bills
+                    Check off those bills
                   </h4>
                   <p class="">
-                    Mark expenses as "Paid" as soon as they're settled – never
-                    miss a due date again.
+                    Quickly mark expenses as "Paid" with a single tap on the
+                    checkmark as soon as they're settled.
                   </p>
                 </div>
               </li>
@@ -257,7 +238,7 @@
                 >
                 <div class="space-y-2 relative -top-[5px]">
                   <h4 class="text-lg font-bold text-neutral-700">
-                    See the Big Picture
+                    See the big picture
                   </h4>
                   <p class="">
                     Gain insights into your spending habits with our
@@ -283,34 +264,42 @@
     </div>
 
     <div class="relative overflow-hidden">
+      <div
+        class="bg-yellow-200 pointer-events-none aspect-square md:w-[40%] rounded-full opacity-10 blur-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      ></div>
+
       <div class="container max-w-screen-md mx-auto px-4 z-10 relative py-20">
         <div class="mb-8 space-y-4">
-          <h3 class="text-3xl font-bold text-neutral-700 leading-tight">
-            Financial clarity at your fingertips
+          <h3 class="text-2xl md:text-3xl text-neutral-700">
+            <span
+              class="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-bold"
+              >Financial clarity</span
+            >
+            at your fingertips
           </h3>
 
           <p class="text-neutral-500 mb-8">
-            From budgeting to insights, we've got you covered. See how our core
-            features can help you achieve financial peace of mind.
+            See how our core features can help you achieve financial peace of
+            mind.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <i class="ti ti-bell text-5xl mb-3"></i>
-              <h4 class="card-title">Never Miss a Bill Again</h4>
+          <div class="card">
+            <div class="card-body flex flex-col gap-4">
+              <i class="ti ti-bell text-5xl mb-4"></i>
+              <h4 class="card-title">Automatic Bill Reminders</h4>
               <p>
-                Set up automatic bill reminders and receive timely notifications
-                so you never miss a payment again.
+                Set up reminders and get notifications so you're always on time
+                with payments.
               </p>
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <i class="ti ti-circle-check text-5xl mb-3"></i>
-              <h4 class="card-title">Bill Status at a Glance</h4>
+          <div class="card">
+            <div class="card-body flex flex-col gap-4">
+              <i class="ti ti-circle-check text-5xl mb-4"></i>
+              <h4 class="card-title">Bill Status Overview</h4>
               <p>
                 See at a glance which bills are paid, pending, or overdue, so
                 you can stay on top of your finances.
@@ -318,10 +307,10 @@
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <i class="ti ti-category text-5xl mb-3"></i>
-              <h4 class="card-title">Categorize Your Spending</h4>
+          <div class="card">
+            <div class="card-body flex flex-col gap-4">
+              <i class="ti ti-category text-5xl mb-4"></i>
+              <h4 class="card-title">Customizable Spending Categories</h4>
               <p>
                 Choose from predefined categories or create your own for
                 personalized tracking.
@@ -329,10 +318,10 @@
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <i class="ti ti-chart-pie-2 text-5xl mb-3"></i>
-              <h4 class="card-title">Visualize Your Budget</h4>
+          <div class="card">
+            <div class="card-body flex flex-col gap-4">
+              <i class="ti ti-chart-pie-2 text-5xl mb-4"></i>
+              <h4 class="card-title">Visual Budget Tracking</h4>
               <p>
                 See exactly where your money's going with clear and insightful
                 graphs.
@@ -340,10 +329,10 @@
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <i class="ti ti-history text-5xl mb-3"></i>
-              <h4 class="card-title">Review Spending History</h4>
+          <div class="card">
+            <div class="card-body flex flex-col gap-4">
+              <i class="ti ti-history text-5xl mb-4"></i>
+              <h4 class="card-title">Spending History Review</h4>
               <p>
                 Review previous months' expenses, spot any unsettled items, and
                 track progress towards your financial goals.
@@ -351,9 +340,9 @@
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <i class="ti ti-wand text-5xl mb-3"></i>
+          <div class="card">
+            <div class="card-body flex flex-col gap-4">
+              <i class="ti ti-wand text-5xl mb-4"></i>
               <h4 class="card-title">AI-Powered Insights</h4>
               <p>
                 Receive personalized, AI-generated insights and recommendations
@@ -362,21 +351,12 @@
             </div>
           </div>
         </div>
-
-        <button
-          class="btn md:btn-lg mt-20 mx-auto block shadow-xl"
-          data-waitlist="true"
-        >
-          Join the Waitlist
-        </button>
       </div>
-
-      <span class="bg-features"></span>
     </div>
 
     <div>
       <div class="container max-w-screen-md mx-auto px-4 gap-8">
-        <div class="py-56 grid gap-8 items-center">
+        <div class="py-20 grid gap-8 items-center">
           <div class="space-y-4">
             <h3 class="text-3xl font-bold text-neutral-700 leading-tight">
               Pricing
@@ -395,12 +375,12 @@
                   <h4 class="card-title font-bold">Free</h4>
                   <p class="text-2xl font-bold mb-2">₱0/forever</p>
                   <ul>
-                    <li class="flex items-center gap-1">
-                      <i class="ti ti-check text-lg text-blue-700"></i>
+                    <li class="flex items-center gap-3">
+                      <i class="ti ti-circle-check text-lg"></i>
                       <span>10 expenses</span>
                     </li>
-                    <li class="flex items-center gap-1">
-                      <i class="ti ti-check text-lg text-blue-700"></i>
+                    <li class="flex items-center gap-3">
+                      <i class="ti ti-circle-check text-lg"></i>
                       <span>All the features</span>
                     </li>
                   </ul>
@@ -415,12 +395,12 @@
                   <h4 class="card-title font-bold">Premium</h4>
                   <p class="text-2xl font-bold mb-2">₱49/mo</p>
                   <ul>
-                    <li class="flex items-center gap-1">
-                      <i class="ti ti-check text-lg"></i>
+                    <li class="flex items-center gap-3">
+                      <i class="ti ti-circle-check text-lg"></i>
                       <span>Unlimited expenses</span>
                     </li>
-                    <li class="flex items-center gap-1">
-                      <i class="ti ti-check text-lg"></i>
+                    <li class="flex items-center gap-3">
+                      <i class="ti ti-circle-check text-lg"></i>
                       <span>All the features</span>
                     </li>
                   </ul>
@@ -432,18 +412,7 @@
       </div>
     </div>
 
-    <div
-      class="marquee overflow-hidden flex py-8"
-      data-mc-speed="10"
-      data-mc-direction="rtl"
-      role="marquee"
-    >
-      <div class="text-5xl whitespace-nowrap uppercase text-neutral-700">
-        Launching Soon *&nbsp;
-      </div>
-    </div>
-
-    <div class="bg-red-100">
+    <div class="">
       <div
         class="container min-h-[500px] max-w-screen-md mx-auto px-4 flex items-center"
       >
@@ -495,18 +464,7 @@
   </body>
 
   <script type="module">
-    import gsap from "https://esm.sh/gsap";
-    import ScrollTrigger from "https://esm.sh/gsap/ScrollTrigger";
-    import MarqueeContent from "https://esm.sh/marquee-content";
-
     document.addEventListener("DOMContentLoaded", function () {
-      gsap.registerPlugin(ScrollTrigger);
-      MarqueeContent.registerGSAP(gsap, ScrollTrigger);
-      document.querySelectorAll(".marquee").forEach((element) => {
-        const marquee = new MarqueeContent({ element });
-        marquee.init();
-      });
-
       const buttons = document.querySelectorAll("[data-waitlist]");
       const form = document.getElementById("waitlistform");
       const email = document.getElementById("email");

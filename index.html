@@ -264,11 +264,22 @@
               of each month.
             </p>
 
-            <button
-              class="btn btn-lg bg-gradient-to-tr from-pink-500 to-yellow-500 text-white rounded-full"
+            <form
+              class="form flex flex-col md:flex-row gap-4 w-full relative md:items-center md:max-w-[500px] mx-auto !mt-12"
             >
-              Join the Waitlist
-            </button>
+              <input
+                required
+                type="email"
+                class="grow outline-none pl-6 rounded-full min-h-[58px] md:min-h-[68px] text-neutral-700"
+                placeholder="Your email address"
+              />
+              <button
+                type="submit"
+                class="btn bg-gradient-to-tr from-pink-500 to-yellow-500 text-white rounded-full md:absolute right-1 min-h-[60px] text-base px-5"
+              >
+                Join the Waitlist
+              </button>
+            </form>
           </div>
         </div>
       </div>

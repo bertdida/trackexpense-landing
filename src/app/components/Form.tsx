@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 type FormProps = {
   source?: string;
@@ -8,6 +9,8 @@ type FormProps = {
 
 const Form: React.FC<FormProps> = (props) => {
   const id = useId();
+  const searchParams = useGetSearchParams();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState<boolean | undefined>();
 
@@ -65,6 +68,7 @@ const Form: React.FC<FormProps> = (props) => {
       data-form="true"
     >
       {props.source && <input type="hidden" name="source" value={props.source} />}
+      <input type="hidden" name="searchParams" value={searchParams} />
 
       <label htmlFor={id} className="hidden">
         Email Address
@@ -97,5 +101,27 @@ const Form: React.FC<FormProps> = (props) => {
     </form>
   );
 };
+
+// https://stackoverflow.com/a/78801272/8062659
+function useGetSearchParams(): string {
+  const searchParams = useSearchParams();
+  const params: { [anyProp: string]: string } = {};
+
+  searchParams.forEach((value, key) => {
+    params[key] = value;
+  });
+
+  return (
+    '?' +
+    Object.keys(params)
+      .filter(
+        (key) => params[key] !== '' && params[key] !== undefined && params[key] !== null,
+      )
+      .map(
+        (key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`,
+      )
+      .join('&')
+  );
+}
 
 export default Form;

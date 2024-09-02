@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form input {
+  box-shadow:
+    0 1px 1px #d5d5d5,
+    0 0 0 9px #ededec;
+}
+.form input:focus {
+  outline: 1px solid #ffdea6;
+  box-shadow: 0 0 0 9px #fff8e9;
+  outline-offset: 0;
+}

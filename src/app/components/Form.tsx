@@ -16,7 +16,7 @@ const Form: React.FC<FormProps> = (props) => {
       const forms = document.querySelectorAll('[data-form]');
       forms.forEach((form) => {
         form.innerHTML = `
-          <div class="flex w-full flex-col items-center gap-2">
+          <div class="flex w-full flex-col items-center gap-2 text-center">
             <p class="text-2xl font-semibold text-neutral-700">
               🎉 Yay, you&apos;re on the waitlist!
             </p>

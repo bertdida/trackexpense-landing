@@ -160,7 +160,7 @@ export default function Home() {
             alt="woman managing her personal finances"
             width={368}
             height={207}
-            className="max-w-[unset]"
+            className="max-w-full sm:max-w-[unset]"
           />
 
           <h1 className="text-4xl font-bold leading-tight text-neutral-700 md:text-5xl">

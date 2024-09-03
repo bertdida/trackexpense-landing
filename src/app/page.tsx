@@ -305,10 +305,14 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="container mx-auto flex flex-col items-center justify-center px-8 py-8">
-          <p className="text-neutral-700">Trackexpense 2024. All rights reserved.</p>
+        <div className="container mx-auto flex flex-col items-center justify-center space-y-1 px-8 py-8 text-center">
+          <p className="text-sm text-neutral-700">
+            Trackexpense <CurrentYear />. Illustrations by&nbsp;
+            <a href="https://icons8.com/illustrations/author/DETSVS1CxEMr">Polina G</a>
+            &nbsp;from <a href="https://icons8.com/illustrations">Ouch!</a>
+          </p>
           <span className="flex gap-1 text-sm text-neutral-500">
-            Made with <HeartIcon className="text-red-500" /> by
+            Made with ❤️ by
             <a href="https://bertdida.dev/" target="_blank">
               bertdida
             </a>
@@ -318,6 +322,8 @@ export default function Home() {
     </main>
   );
 }
+
+const CurrentYear: React.FC = () => <>{new Date().getFullYear()}</>;
 
 type GradientTextProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLSpanElement>,
@@ -395,10 +401,8 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => {
     <div className="card">
       <div className="card-body flex flex-col gap-4 pl-0">
         <div className="mb-4 flex h-[65px] w-[65px] items-center justify-center rounded-full bg-white text-white shadow-xl">
-          {/* <i className="ti ti-history text-4xl text-orange-500"></i> */}
           {icon}
         </div>
-
         <h4 className="card-title">{title}</h4>
         <p>{description}</p>
       </div>

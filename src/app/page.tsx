@@ -268,7 +268,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex flex-col-reverse gap-8 md:flex-row">
               {pricings.map((pricing, index) => (
                 <Pricing key={index} {...pricing} />
               ))}
@@ -399,7 +399,7 @@ const Pricing: React.FC<PricingProps> = ({
   features,
 }) => {
   return (
-    <div {...ContainerProps} className={twMerge('card', ContainerProps.className)}>
+    <div {...ContainerProps} className={twMerge('card grow', ContainerProps.className)}>
       <div className="card-body">
         {icon}
         <h4 className="card-title font-bold">{title}</h4>

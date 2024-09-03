@@ -11,6 +11,9 @@ import HistoryIcon from '@/app/components/HistoryIcon';
 import SeedingIcon from '@/app/components/SeedingIcon';
 import StarIcon from '@/app/components/StarIcon';
 import HeartIcon from '@/app/components/HeartIcon';
+import GooglePlayIcon from '@/app/components/GooglePlayIcon';
+import AppStoreIcon from '@/app/components/AppStoreIcon';
+import React from 'react';
 
 const benefitIconProps = {
   width: 50,
@@ -177,13 +180,11 @@ export default function Home() {
 
       <div className="bg-[#fffcf4] py-20">
         <div className="container mx-auto max-w-screen-lg space-y-16 px-8">
-          <h2 className="text-center text-2xl text-neutral-700 md:text-3xl">
+          <h3 className="text-center text-2xl text-neutral-700 md:text-3xl">
             Budgeting made
             <br className="md:hidden" />
-            <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text font-bold text-transparent">
-              &nbsp;simple & effective
-            </span>
-          </h2>
+            <GradientText>&nbsp;simple & effective</GradientText>
+          </h3>
           <div className="grid gap-20 md:grid-cols-3">
             {benefits.map((benefit, index) => (
               <Benefit key={index} {...benefit} />
@@ -206,9 +207,7 @@ export default function Home() {
 
             <div className="space-y-8">
               <h3 className="text-2xl text-neutral-700 md:text-3xl">
-                <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text font-bold text-transparent">
-                  Getting started
-                </span>
+                <GradientText>Getting started</GradientText>
                 <br />
                 <span>as easy as 1-2-3</span>
               </h3>
@@ -236,9 +235,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto max-w-screen-lg px-8 py-20">
           <div className="mb-8 space-y-4">
             <h3 className="text-2xl text-neutral-700 md:text-3xl">
-              <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text font-bold text-transparent">
-                Financial clarity
-              </span>
+              <GradientText>Financial clarity</GradientText>
               &nbsp;at your fingertips
             </h3>
 
@@ -259,9 +256,9 @@ export default function Home() {
         <div className="container mx-auto max-w-screen-md gap-8 px-8">
           <div className="grid items-center gap-8 py-20">
             <div className="space-y-4">
-              <h3 className="text-3xl font-bold leading-tight text-neutral-700">
+              <GradientText as="h3" className="text-2xl md:text-3xl">
                 Simple pricing
-              </h3>
+              </GradientText>
               <p className="text-base text-neutral-500">
                 Free for your first ten expenses or subscribe to our premium for
                 unlimited.
@@ -277,17 +274,24 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <div className="container mx-auto flex min-h-[500px] max-w-screen-md items-center px-8">
+      <div className="space-y-20 bg-gray-50 px-8 py-20">
+        <div className="container mx-auto flex flex-col items-center justify-center gap-4">
+          <h3 className="text-center text-2xl font-bold leading-tight text-neutral-700 md:text-3xl">
+            Coming Soon
+          </h3>
+
+          <div className="flex flex-col gap-4 md:flex-row">
+            <GooglePlayIcon width={200} height={60} />
+            <AppStoreIcon width={200} height={60} />
+          </div>
+        </div>
+
+        <div className="container mx-auto flex max-w-screen-md items-center">
           <div className="w-full space-y-8">
             <div className="space-y-3">
-              <h4 className="text-center text-3xl font-bold leading-tight text-neutral-700">
-                Ready to
-                <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text font-bold text-transparent">
-                  &nbsp;take control of your finances
-                </span>
-                ?
-              </h4>
+              <h3 className="text-center text-2xl leading-tight md:text-3xl">
+                <GradientText>&nbsp;Take control of your finances</GradientText>
+              </h3>
 
               <p className="text-center text-base text-neutral-500">
                 Get early access to Trackexpense and experience the clarity, confidence,
@@ -314,6 +318,28 @@ export default function Home() {
     </main>
   );
 }
+
+type GradientTextProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLSpanElement>,
+  HTMLSpanElement
+> & {
+  as?: string;
+};
+
+const GradientText: React.FC<GradientTextProps> = (props) => {
+  const Tag = props.as || 'span';
+
+  return (
+    <Tag
+      {...props}
+      // @ts-ignore
+      className={twMerge(
+        'bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text font-bold text-transparent',
+        props.className,
+      )}
+    />
+  );
+};
 
 type BenefitProps = {
   icon: React.ReactNode;

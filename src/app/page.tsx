@@ -139,7 +139,7 @@ const pricings: PricingProps[] = [
     icon: <SeedingIcon width={50} height={50} />,
     title: 'Free',
     description: '₱0/forever',
-    features: ['10 expenses', 'All the features'],
+    features: ['10 expenses', 'All the features except AI insights'],
   },
   {
     ContainerProps: {
@@ -265,7 +265,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative flex flex-col-reverse gap-8 md:start-[-1rem] md:flex-row">
+            <div className="relative flex flex-col-reverse gap-8 md:start-[-1rem] md:grid md:grid-cols-2">
               {pricings.map((pricing, index) => (
                 <Pricing key={index} {...pricing} />
               ))}
@@ -426,14 +426,14 @@ const Pricing: React.FC<PricingProps> = ({
 }) => {
   return (
     <div {...ContainerProps} className={twMerge('card grow', ContainerProps.className)}>
-      <div className="card-body">
+      <div className="card-body flex-none">
         {icon}
         <h4 className="card-title font-bold">{title}</h4>
         <p className="mb-2 text-2xl font-bold">{description}</p>
-        <ul>
+        <ul className="flex flex-col gap-2">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-3">
-              <CircleCheckIcon />
+            <li key={index} className="grid grid-cols-[24px,1fr] gap-3">
+              <CircleCheckIcon className="relative" />
               <span>{feature}</span>
             </li>
           ))}

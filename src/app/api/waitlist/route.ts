@@ -29,15 +29,15 @@ const rateLimiter = new RateLimiter({
 });
 
 export async function POST(request: Request) {
-  const detectedIp = request.headers.get('X-Forwarded-For') ?? 'unknown';
-  const isRateLimited = rateLimiter.limit(detectedIp);
-
-  if (isRateLimited) {
-    return NextResponse.json({ success: false }, { status: 429 });
-  }
-
   try {
     const payload = schema.parse(await request.json());
+
+    const detectedIp = request.headers.get('X-Forwarded-For') ?? 'unknown';
+    const isRateLimited = rateLimiter.limit(detectedIp);
+
+    if (isRateLimited) {
+      return NextResponse.json({ success: false }, { status: 429 });
+    }
 
     const referer = request.headers.get('referer') || '';
     let refererParams = referer.replace(request.headers.get('origin') || '', '');
@@ -62,9 +62,7 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json({
-      success: true,
-    });
+    return NextResponse.json({ success: true });
   } catch (error) {
     if (error instanceof z.ZodError) {
       const errors: Record<string, string> = {};
@@ -72,13 +70,7 @@ export async function POST(request: Request) {
         errors[error.path.join('.')] = error.message;
       });
 
-      return NextResponse.json(
-        {
-          success: false,
-          errors,
-        },
-        { status: 400 },
-      );
+      return NextResponse.json({ success: false, errors }, { status: 400 });
     } else {
       console.error('An error occurred:', error);
       return NextResponse.json({ success: false }, { status: 500 });

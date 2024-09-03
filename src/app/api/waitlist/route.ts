@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
 import { sheets, auth as sheetsAuth } from '@googleapis/sheets';
+import RateLimiter from '@/app/services/RateLimiter';
 
 const schema = z.object({
   email: z.string().email(),
@@ -22,7 +23,19 @@ const sheetsApi = sheets({
   version: 'v4',
 });
 
+const rateLimiter = new RateLimiter({
+  windowSize: 15,
+  maxRequests: 1,
+});
+
 export async function POST(request: Request) {
+  const detectedIp = request.headers.get('X-Forwarded-For') ?? 'unknown';
+  const isRateLimited = rateLimiter.limit(detectedIp);
+
+  if (isRateLimited) {
+    return NextResponse.json({ success: false }, { status: 429 });
+  }
+
   try {
     const payload = schema.parse(await request.json());
 
@@ -68,13 +81,7 @@ export async function POST(request: Request) {
       );
     } else {
       console.error('An error occurred:', error);
-      return NextResponse.json(
-        {
-          success: false,
-          message: 'An unexpected error occurred',
-        },
-        { status: 500 },
-      );
+      return NextResponse.json({ success: false }, { status: 500 });
     }
   }
 }

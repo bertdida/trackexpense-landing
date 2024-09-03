@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
+import { sheets, auth as sheetsAuth } from '@googleapis/sheets';
 
 const schema = z.object({
   email: z.string().email(),
@@ -7,14 +8,42 @@ const schema = z.object({
   searchParams: z.string().optional(),
 });
 
+const googleCredentials = JSON.parse(
+  Buffer.from(String(process.env.GOOGLE_SERVICE_ACCOUNT_BASE64), 'base64').toString(
+    'utf-8',
+  ),
+);
+
+const auth = new sheetsAuth.GoogleAuth({
+  credentials: googleCredentials,
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
+
+const sheetsApi = sheets({
+  version: 'v4',
+});
+
 export async function POST(request: Request) {
   try {
     const payload = schema.parse(await request.json());
-    console.log({
-      ...payload,
-      date: new Date().toLocaleString('en-US', {
-        timeZone: 'Asia/Manila',
-      }),
+
+    await sheetsApi.spreadsheets.values.append({
+      auth,
+      spreadsheetId: String(process.env.GOOGLE_SHEET_ID),
+      range: 'Sheet1!A1',
+      valueInputOption: 'RAW',
+      requestBody: {
+        values: [
+          [
+            payload.email,
+            payload.source,
+            payload.searchParams,
+            new Date().toLocaleString('en-US', {
+              timeZone: 'Asia/Manila',
+            }),
+          ],
+        ],
+      },
     });
 
     return NextResponse.json({

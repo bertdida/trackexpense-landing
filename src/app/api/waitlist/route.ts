@@ -5,7 +5,6 @@ import { sheets, auth as sheetsAuth } from '@googleapis/sheets';
 const schema = z.object({
   email: z.string().email(),
   source: z.string().optional(),
-  searchParams: z.string().optional(),
 });
 
 const googleCredentials = JSON.parse(
@@ -27,6 +26,10 @@ export async function POST(request: Request) {
   try {
     const payload = schema.parse(await request.json());
 
+    const referer = request.headers.get('referer') || '';
+    let refererParams = referer.replace(request.headers.get('origin') || '', '');
+    refererParams = refererParams.replace(/^\//, '');
+
     await sheetsApi.spreadsheets.values.append({
       auth,
       spreadsheetId: String(process.env.GOOGLE_SHEET_ID),
@@ -37,7 +40,7 @@ export async function POST(request: Request) {
           [
             payload.email,
             payload.source,
-            payload.searchParams,
+            refererParams,
             new Date().toLocaleString('en-US', {
               timeZone: 'Asia/Manila',
             }),

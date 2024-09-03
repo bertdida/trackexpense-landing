@@ -265,7 +265,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col-reverse gap-8 md:flex-row">
+            <div className="relative flex flex-col-reverse gap-8 md:start-[-1rem] md:flex-row">
               {pricings.map((pricing, index) => (
                 <Pricing key={index} {...pricing} />
               ))}

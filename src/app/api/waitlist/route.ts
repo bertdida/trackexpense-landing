@@ -10,7 +10,12 @@ const schema = z.object({
 export async function POST(request: Request) {
   try {
     const payload = schema.parse(await request.json());
-    console.log(payload);
+    console.log({
+      ...payload,
+      date: new Date().toLocaleString('en-US', {
+        timeZone: 'Asia/Manila',
+      }),
+    });
 
     return NextResponse.json({
       success: true,

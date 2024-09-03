@@ -111,17 +111,18 @@ function useGetSearchParams(): string {
     params[key] = value;
   });
 
-  return (
-    '?' +
-    Object.keys(params)
-      .filter(
-        (key) => params[key] !== '' && params[key] !== undefined && params[key] !== null,
-      )
-      .map(
-        (key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`,
-      )
-      .join('&')
-  );
+  const paramsString = Object.keys(params)
+    .filter(
+      (key) => params[key] !== '' && params[key] !== undefined && params[key] !== null,
+    )
+    .map((key: string) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    .join('&');
+
+  if (paramsString) {
+    return `?${paramsString}`;
+  }
+
+  return '';
 }
 
 export default Form;

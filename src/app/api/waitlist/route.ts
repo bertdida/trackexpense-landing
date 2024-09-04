@@ -53,10 +53,8 @@ export async function POST(request: Request) {
           [
             payload.email,
             payload.source,
+            new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }),
             refererParams,
-            new Date().toLocaleString('en-US', {
-              timeZone: 'Asia/Manila',
-            }),
           ],
         ],
       },

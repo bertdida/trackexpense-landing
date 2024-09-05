@@ -2,7 +2,7 @@
 
 import React, { useEffect, useId, useImperativeHandle, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import Legal from '@/app/legal/page';
+import LegalText from '@/app/components/LegalText';
 
 type FormProps = {
   source?: string;
@@ -168,7 +168,7 @@ const ConfirmationModal = React.forwardRef<ConfirmationModalRef>((_, ref) => {
     <dialog ref={dialog} className="modal modal-bottom sm:modal-middle">
       <div className="overflow modal-box">
         <div ref={content} className="h-[80vh] max-h-[500px] overflow-y-auto">
-          <Legal ContainerProps={{ as: 'div', className: 'p-0' }} />
+          <LegalText ContainerProps={{ as: 'div', className: 'p-0' }} />
         </div>
         <div className="modal-action">
           <button onClick={onClose} className="btn w-full max-w-[120px] rounded-full">

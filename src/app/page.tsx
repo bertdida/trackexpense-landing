@@ -329,7 +329,7 @@ type GradientTextProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLSpanElement>,
   HTMLSpanElement
 > & {
-  as?: string;
+  as?: React.ElementType;
 };
 
 const GradientText: React.FC<GradientTextProps> = (props) => {

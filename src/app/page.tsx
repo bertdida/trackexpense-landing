@@ -2,17 +2,16 @@ import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
 import Form from '@/app/components/Form';
-import BellIcon from '@/app/components/BellIcon';
-import ChartIcon from '@/app/components/ChartIcon';
-import WandIcon from '@/app/components/WandIcon';
-import CircleCheckIcon from '@/app/components/CircleCheckIcon';
-import CategoryIcon from '@/app/components/CategoryIcon';
-import HistoryIcon from '@/app/components/HistoryIcon';
-import SeedingIcon from '@/app/components/SeedingIcon';
-import StarIcon from '@/app/components/StarIcon';
-import HeartIcon from '@/app/components/HeartIcon';
-import GooglePlayIcon from '@/app/components/GooglePlayIcon';
-import AppStoreIcon from '@/app/components/AppStoreIcon';
+import BellIcon from '@/app/components/icons/BellIcon';
+import ChartIcon from '@/app/components/icons/ChartIcon';
+import WandIcon from '@/app/components/icons/WandIcon';
+import CircleCheckIcon from '@/app/components/icons/CircleCheckIcon';
+import CategoryIcon from '@/app/components/icons/CategoryIcon';
+import HistoryIcon from '@/app/components/icons/HistoryIcon';
+import SeedingIcon from '@/app/components/icons/SeedingIcon';
+import StarIcon from '@/app/components/icons/StarIcon';
+import GooglePlayIcon from '@/app/components/icons/GooglePlayIcon';
+import AppStoreIcon from '@/app/components/icons/AppStoreIcon';
 import React from 'react';
 
 const benefitIconProps = {

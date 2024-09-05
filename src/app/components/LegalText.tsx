@@ -28,9 +28,9 @@ const LegalText: React.FC<LegalTextProps> = ({ ContainerProps }) => {
 
       <h5 className={className.secondary}>1. Acceptance of Terms</h5>
       <p className={className.body}>
-        By submitting your email address through this form, you acknowledge that you have
-        read, understood, and agree to be bound by these Terms and Conditions, as well as
-        our Privacy Policy.
+        By submitting your email address, you acknowledge that you have read, understood,
+        and agree to be bound by these Terms and Conditions, as well as our Privacy
+        Policy.
       </p>
 
       <h5 className={className.secondary}>2. Purpose of Data Collection</h5>

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useId, useImperativeHandle, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { Transition } from 'react-transition-group';
 import LegalText from '@/app/components/LegalText';
 
 type FormProps = {
@@ -122,61 +123,49 @@ type ConfirmationModalRef = {
 };
 
 const ConfirmationModal = React.forwardRef<ConfirmationModalRef>((_, ref) => {
+  const [isOpen, setIsOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
-  const content = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const dialogEl = dialog.current;
-
-    if (!dialogEl) {
+    if (!isOpen) {
+      dialog.current?.close();
       return;
     }
 
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'open') {
-          if (dialogEl.open) {
-            content.current?.scrollTo({ top: 0 });
-          }
-        }
-      });
-    });
+    dialog.current?.showModal();
 
-    observer.observe(dialogEl, { attributes: true });
-
-    return function cleanup() {
-      observer.disconnect();
-    };
-  }, [ref]);
+    const content = dialog.current?.querySelector('.modal-content');
+    if (content) {
+      content.scrollTo({ top: 0 });
+    }
+  }, [isOpen]);
 
   function onClose() {
-    if (dialog.current) {
-      dialog.current.close();
-    }
+    setIsOpen(false);
   }
 
   useImperativeHandle(ref, () => ({
     hide: onClose,
     show: () => {
-      if (dialog.current) {
-        dialog.current.showModal();
-      }
+      setIsOpen(true);
     },
   }));
 
   return createPortal(
-    <dialog ref={dialog} className="modal modal-bottom sm:modal-middle">
-      <div className="overflow modal-box">
-        <div ref={content} className="h-[80vh] max-h-[500px] overflow-y-auto">
-          <LegalText ContainerProps={{ as: 'div', className: 'p-0' }} />
+    <Transition unmountOnExit timeout={300} nodeRef={dialog} in={isOpen}>
+      <dialog ref={dialog} className="modal modal-bottom sm:modal-middle">
+        <div className="overflow modal-box">
+          <div className="modal-content h-[80vh] max-h-[500px] overflow-y-auto">
+            <LegalText ContainerProps={{ as: 'div', className: 'p-0' }} />
+          </div>
+          <div className="modal-action">
+            <button onClick={onClose} className="btn w-full max-w-[120px] rounded-full">
+              Okay
+            </button>
+          </div>
         </div>
-        <div className="modal-action">
-          <button onClick={onClose} className="btn w-full max-w-[120px] rounded-full">
-            Okay
-          </button>
-        </div>
-      </div>
-    </dialog>,
+      </dialog>
+    </Transition>,
     document.body,
   );
 });

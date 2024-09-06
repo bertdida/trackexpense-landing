@@ -124,7 +124,12 @@ type ConfirmationModalRef = {
 
 const ConfirmationModal = React.forwardRef<ConfirmationModalRef>((_, ref) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -150,6 +155,10 @@ const ConfirmationModal = React.forwardRef<ConfirmationModalRef>((_, ref) => {
       setIsOpen(true);
     },
   }));
+
+  if (!isMounted) {
+    return null;
+  }
 
   return createPortal(
     <Transition unmountOnExit timeout={300} nodeRef={dialog} in={isOpen}>

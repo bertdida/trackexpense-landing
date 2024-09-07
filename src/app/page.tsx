@@ -197,6 +197,7 @@ export default function Home() {
           <div className="grid items-center gap-8 md:grid-cols-2">
             <Image
               unoptimized
+              quality={100}
               src="/young-woman-waving-her-hand.png"
               alt="young woman waving her hand"
               width={368}

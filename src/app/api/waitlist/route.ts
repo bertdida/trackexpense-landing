@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     refererParams = refererParams.replace(/^\//, '');
 
     // https://developers.mailerlite.com/docs/subscribers.html#create-upsert-subscriber
-    fetch('https://connect.mailerlite.com/api/subscribers', {
+    await fetch('https://connect.mailerlite.com/api/subscribers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,8 +43,6 @@ export async function POST(request: Request) {
           form_source: payload.source,
         },
       }),
-    }).catch((error) => {
-      console.error('An error occurred:', error);
     });
 
     return NextResponse.json({ success: true });

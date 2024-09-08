@@ -1,26 +1,10 @@
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
-import { sheets, auth as sheetsAuth } from '@googleapis/sheets';
 import RateLimiter from '@/app/services/RateLimiter';
 
 const schema = z.object({
   email: z.string().email(),
   source: z.string().optional(),
-});
-
-const googleCredentials = JSON.parse(
-  Buffer.from(String(process.env.GOOGLE_SERVICE_ACCOUNT_BASE64), 'base64').toString(
-    'utf-8',
-  ),
-);
-
-const auth = new sheetsAuth.GoogleAuth({
-  credentials: googleCredentials,
-  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-});
-
-const sheetsApi = sheets({
-  version: 'v4',
 });
 
 const rateLimiter = new RateLimiter({
@@ -43,21 +27,24 @@ export async function POST(request: Request) {
     let refererParams = referer.replace(request.headers.get('origin') || '', '');
     refererParams = refererParams.replace(/^\//, '');
 
-    await sheetsApi.spreadsheets.values.append({
-      auth,
-      spreadsheetId: String(process.env.GOOGLE_SHEET_ID),
-      range: 'Sheet1!A1',
-      valueInputOption: 'RAW',
-      requestBody: {
-        values: [
-          [
-            payload.email,
-            payload.source,
-            new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }),
-            refererParams,
-          ],
-        ],
+    // https://developers.mailerlite.com/docs/subscribers.html#create-upsert-subscriber
+    fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${process.env.MAILER_LITE_KEY}`,
       },
+      body: JSON.stringify({
+        email: payload.email,
+        groups: [process.env.MAILER_LITE_GROUP_ID],
+        fields: {
+          referer_params: refererParams,
+          form_source: payload.source,
+        },
+      }),
+    }).catch((error) => {
+      console.error('An error occurred:', error);
     });
 
     return NextResponse.json({ success: true });

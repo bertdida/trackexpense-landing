@@ -182,7 +182,7 @@ export default function Home() {
           <h3 className="text-center text-2xl text-neutral-700 md:text-3xl">
             Budgeting made
             <br className="md:hidden" />
-            <GradientText>&nbsp;simple & effective</GradientText>
+            <GradientText>&nbsp;simple and effective</GradientText>
           </h3>
           <div className="grid gap-20 md:grid-cols-3">
             {benefits.map((benefit, index) => (
@@ -260,8 +260,8 @@ export default function Home() {
                 Simple pricing
               </GradientText>
               <p className="text-base text-neutral-500">
-                Free for your first ten expenses or subscribe to our premium for
-                unlimited.
+                Start with a free plan for your first ten expenses or upgrade to our
+                premium plan for unlimited tracking.
               </p>
             </div>
 

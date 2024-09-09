@@ -138,7 +138,7 @@ const pricings: PricingProps[] = [
     icon: <SeedingIcon width={50} height={50} />,
     title: 'Free',
     description: '₱0/forever',
-    features: ['10 expenses', 'All the features except AI insights'],
+    features: ['10 expenses', '5 expense reminders', 'All features except AI Insights'],
   },
   {
     ContainerProps: {
@@ -147,7 +147,7 @@ const pricings: PricingProps[] = [
     icon: <StarIcon width={50} height={50} />,
     title: 'Premium',
     description: '₱49/mo',
-    features: ['Unlimited expenses', 'All the features'],
+    features: ['Unlimited expenses', 'Unlimited expense reminders', 'All features'],
   },
 ];
 

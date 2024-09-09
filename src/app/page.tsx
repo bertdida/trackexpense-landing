@@ -277,7 +277,7 @@ export default function Home() {
       <div className="space-y-20 bg-gray-50 px-8 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center gap-4">
           <h3 className="text-center text-2xl font-bold leading-tight text-neutral-700 md:text-3xl">
-            Coming Soon
+            Available in a few months
           </h3>
 
           <div className="flex flex-col gap-4 md:flex-row">

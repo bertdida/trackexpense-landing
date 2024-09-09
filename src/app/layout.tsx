@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: 'https://trackexpense.app/woman-managing-her-personal-finances.png',
+        url: 'https://trackexpense.app/trackexpense.png',
         width: 368,
         height: 207,
         alt: 'Trackexpense',

@@ -306,15 +306,14 @@ export default function Home() {
 
       <footer>
         <div className="container mx-auto flex flex-col items-center justify-center space-y-2 px-8 py-8 text-center">
-          <div className="grid grid-cols-[30px,1fr] items-center gap-1">
+          <div className="grid grid-cols-[25px,1fr] items-center gap-2">
             <Image
               src="/trackexpense-logo.png"
               alt="trackexpense logo"
               width={25}
               height={25}
-              className="max-w-full sm:max-w-[unset]"
             />
-            <div className="text-neutral-700-700 text-sm">
+            <div className="text-sm text-neutral-700">
               Trackexpense <CurrentYear />
             </div>
           </div>

@@ -305,18 +305,24 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="container mx-auto flex flex-col items-center justify-center space-y-1 px-8 py-8 text-center">
-          <p className="text-sm text-neutral-700">
-            Trackexpense <CurrentYear />. Illustrations by&nbsp;
-            <a href="https://icons8.com/illustrations/author/DETSVS1CxEMr">Polina G</a>
-            &nbsp;from <a href="https://icons8.com/illustrations">Ouch!</a>
+        <div className="container mx-auto flex flex-col items-center justify-center space-y-2 px-8 py-8 text-center">
+          <div className="grid grid-cols-[30px,1fr] items-center gap-1">
+            <Image
+              src="/trackexpense-logo.png"
+              alt="trackexpense logo"
+              width={25}
+              height={25}
+              className="max-w-full sm:max-w-[unset]"
+            />
+            <div className="text-neutral-700-700 text-sm">
+              Trackexpense <CurrentYear />
+            </div>
+          </div>
+
+          <p className="text-sm text-neutral-500">
+            Questions? Contact us at&nbsp;
+            <a href="mailto:hello@trackexpense.app">hello@trackexpense.app</a>
           </p>
-          <span className="flex gap-1 text-sm text-neutral-500">
-            Made with ❤️ by
-            <a href="https://bertdida.dev/" target="_blank">
-              bertdida
-            </a>
-          </span>
         </div>
       </footer>
     </main>

@@ -146,7 +146,7 @@ const pricings: PricingProps[] = [
     },
     icon: <StarIcon width={50} height={50} />,
     title: 'Premium',
-    description: '₱49/mo',
+    description: '₱149/mo',
     features: ['All features', 'Unlimited expenses', 'Unlimited expense reminders'],
   },
 ];

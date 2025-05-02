@@ -13,11 +13,9 @@ const Privacy: React.FC = () => {
 
   return (
     <main className={twMerge('container mx-auto max-w-screen-md px-8 py-8')}>
-      <h1 className={twMerge(className.primary, 'mt-0')}>
+      <h1 className={twMerge(className.primary, 'mb-3 mt-0')}>
         Privacy Policy for TrackExpense App
       </h1>
-
-      <br />
 
       <p className={className.body}>
         Effective Date: <time dateTime={effectiveDate}>{effectiveDate}</time>

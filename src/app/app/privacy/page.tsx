@@ -2,6 +2,12 @@ import { twMerge } from 'tailwind-merge';
 
 import { className } from '@/app/components/LegalText';
 
+export const metadata = {
+  title: 'Privacy Policy | TrackExpense App',
+  description:
+    'Read the TrackExpense App Privacy Policy to learn how we collect, use, and protect your information. Your privacy is important to us.',
+};
+
 const Privacy: React.FC = () => {
   const effectiveDate = 'May 02, 2025';
 

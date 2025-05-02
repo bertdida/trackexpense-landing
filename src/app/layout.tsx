@@ -8,9 +8,9 @@ const poppins = Poppins({
   subsets: ['latin'],
 });
 
-const title = 'Trackexpense - A to-do list app for your monthly expenses';
+const title = 'TrackExpense - A to-do list app for your monthly expenses';
 const description =
-  'Simplify your budgeting with Trackexpense. Just like your favorite to-do list, but for your bills';
+  'Simplify your budgeting with TrackExpense. Just like your favorite to-do list, but for your bills';
 
 export const metadata: Metadata = {
   title,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://trackexpense.app',
-    siteName: 'Trackexpense',
+    siteName: 'TrackExpense',
     title,
     description,
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: 'https://trackexpense.app/trackexpense.png',
         width: 368,
         height: 207,
-        alt: 'Trackexpense',
+        alt: 'TrackExpense',
       },
     ],
   },

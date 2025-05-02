@@ -8,7 +8,7 @@ type LegalTextProps = {
 
 const className = {
   primary:
-    'bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-lg font-bold text-transparent mt-8',
+    'bg-gradient-to-r from-indigo-500 to-sky-500 bg-clip-text text-lg font-bold text-transparent mt-8',
   secondary: 'text-base font-semibold mt-4',
   body: 'text-sm leading-relaxed mt-1',
   list: 'list-disc list-outside pl-5 text-sm',
@@ -36,20 +36,20 @@ const LegalText: React.FC<LegalTextProps> = ({ ContainerProps }) => {
       <h5 className={className.secondary}>2. Purpose of Data Collection</h5>
       <p className={className.body}>
         Your email address is collected solely for the purpose of adding you to the
-        Trackexpense waitlist and providing you with updates and notifications related to
+        TrackExpense waitlist and providing you with updates and notifications related to
         the app&apos;s development and release.
       </p>
 
       <h5 className={className.secondary}>3. Communication</h5>
       <p className={className.body}>
-        You consent to receive periodic emails from Trackexpense regarding the app&apos;s
+        You consent to receive periodic emails from TrackExpense regarding the app&apos;s
         progress, new features, launch announcements, and other relevant information.
       </p>
 
       <h5 className={className.secondary}>4. Data Usage and Protection</h5>
       <p className={className.body}>
         Your email address will be used exclusively for communication related to
-        Trackexpense. We will not share, sell, or rent your information to any third
+        TrackExpense. We will not share, sell, or rent your information to any third
         parties without your explicit consent. We implement reasonable security measures
         to protect your personal data from unauthorized access, disclosure, alteration, or
         destruction.
@@ -57,7 +57,7 @@ const LegalText: React.FC<LegalTextProps> = ({ ContainerProps }) => {
 
       <h5 className={className.secondary}>5. Unsubscribing</h5>
       <p className={className.body}>
-        You can opt out of receiving further communication from Trackexpense at any time
+        You can opt out of receiving further communication from TrackExpense at any time
         by clicking the &quot;Unsubscribe&quot; link included in every email.
       </p>
 
@@ -74,7 +74,7 @@ const LegalText: React.FC<LegalTextProps> = ({ ContainerProps }) => {
       <h5 className={className.secondary}>2. How We Use Your Information</h5>
       <p className={className.body}>We use your email address to:</p>
       <ul className={className.list}>
-        <li>Send you updates and notifications related to the Trackexpense app</li>
+        <li>Send you updates and notifications related to the TrackExpense app</li>
         <li>Respond to your inquiries or requests</li>
       </ul>
 
@@ -92,7 +92,7 @@ const LegalText: React.FC<LegalTextProps> = ({ ContainerProps }) => {
 
       <h5 className={className.secondary}>5. Data Retention</h5>
       <p className={className.body}>
-        We will retain your email address for as long as you remain on the Trackexpense
+        We will retain your email address for as long as you remain on the TrackExpense
         waitlist or until you request its deletion.
       </p>
 

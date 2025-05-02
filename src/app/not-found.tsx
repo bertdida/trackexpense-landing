@@ -11,7 +11,7 @@ export default function Custom404() {
 
         <Link
           href="/"
-          className="btn rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 px-5 text-base text-white"
+          className="btn rounded-full bg-gradient-to-tr from-indigo-500 to-sky-500 px-5 text-base text-white"
         >
           Back to Homepage
         </Link>

@@ -25,7 +25,7 @@ const benefits: BenefitProps[] = [
     icon: (
       <BellIcon
         {...benefitIconProps}
-        className={twMerge('text-pink-500', benefitIconProps.className)}
+        className={twMerge('text-indigo-500', benefitIconProps.className)}
       />
     ),
     title: 'Never Miss a Bill Again',
@@ -36,7 +36,7 @@ const benefits: BenefitProps[] = [
     icon: (
       <ChartIcon
         {...benefitIconProps}
-        className={twMerge('text-orange-500', benefitIconProps.className)}
+        className={twMerge('text-blue-500', benefitIconProps.className)}
       />
     ),
     title: 'Understand Your Spending',
@@ -47,7 +47,7 @@ const benefits: BenefitProps[] = [
     icon: (
       <WandIcon
         {...benefitIconProps}
-        className={twMerge('text-yellow-500', benefitIconProps.className)}
+        className={twMerge('text-sky-500', benefitIconProps.className)}
       />
     ),
     title: 'Achieve Your Financial Goals',
@@ -60,7 +60,7 @@ const steps: StepProps[] = [
   {
     NumberProps: {
       children: '1',
-      className: 'from-pink-300 to-pink-100 text-pink-700',
+      className: 'from-indigo-300 to-indigo-100 text-indigo-700',
     },
     title: 'Just like your favorite to-do app',
     description:
@@ -69,7 +69,7 @@ const steps: StepProps[] = [
   {
     NumberProps: {
       children: '2',
-      className: 'from-orange-300 to-orange-100 text-orange-700',
+      className: 'from-blue-300 to-blue-100 text-blue-700',
     },
     title: 'Check off those bills',
     description:
@@ -78,7 +78,7 @@ const steps: StepProps[] = [
   {
     NumberProps: {
       children: '3',
-      className: 'from-yellow-300 to-yellow-100 text-yellow-700',
+      className: 'from-sky-300 to-sky-100 text-sky-700',
     },
     title: 'See the big picture',
     description:
@@ -89,7 +89,7 @@ const steps: StepProps[] = [
 const featureIconProps = {
   width: 35,
   height: 35,
-  className: 'text-orange-500',
+  className: 'text-blue-500',
 };
 
 const features: FeatureProps[] = [
@@ -142,7 +142,7 @@ const pricings: PricingProps[] = [
   },
   {
     ContainerProps: {
-      className: 'bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-xl',
+      className: 'bg-gradient-to-tr from-blue-500 to-sky-300 text-white shadow-xl',
     },
     icon: <StarIcon width={50} height={50} />,
     title: 'Premium',
@@ -177,7 +177,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#fffcf4] py-20">
+      <div className="bg-[#f5fdff] py-20">
         <div className="container mx-auto max-w-screen-lg space-y-16 px-8">
           <h3 className="text-center text-2xl text-neutral-700 md:text-3xl">
             Budgeting made
@@ -230,7 +230,7 @@ export default function Home() {
       </div>
 
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[100vh] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-yellow-200 opacity-10 blur-3xl"></div>
+        <div className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[100vh] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-blue-200 opacity-10 blur-3xl"></div>
 
         <div className="container relative z-10 mx-auto max-w-screen-lg px-8 py-20">
           <div className="mb-8 space-y-4">
@@ -294,7 +294,7 @@ export default function Home() {
               </h3>
 
               <p className="text-center text-base text-neutral-500">
-                Get early access to Trackexpense and experience the clarity, confidence,
+                Get early access to TrackExpense and experience the clarity, confidence,
                 and control you deserve.
               </p>
             </div>
@@ -314,7 +314,7 @@ export default function Home() {
               height={25}
             />
             <div className="text-sm text-neutral-700">
-              Trackexpense <CurrentYear />
+              TrackExpense <CurrentYear />
             </div>
           </div>
 
@@ -345,7 +345,7 @@ const GradientText: React.FC<GradientTextProps> = (props) => {
       {...props}
       // @ts-ignore
       className={twMerge(
-        'bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text font-bold text-transparent',
+        'bg-gradient-to-r from-indigo-500 to-sky-500 bg-clip-text font-bold text-transparent',
         props.className,
       )}
     />

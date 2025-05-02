@@ -90,7 +90,7 @@ const Form: React.FC<FormProps> = (props) => {
         />
         <button
           type="submit"
-          className="btn right-1 min-h-[60px] rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500 px-5 text-base text-white md:absolute"
+          className="btn right-1 min-h-[60px] rounded-full bg-gradient-to-tr from-indigo-500 to-sky-500 px-5 text-base text-white md:absolute"
         >
           {isSubmitting && <span className="loading loading-spinner"></span>}
           Join the Waitlist
@@ -105,8 +105,8 @@ const Form: React.FC<FormProps> = (props) => {
 
       <p className="mx-auto mt-8 max-w-[50ch] text-center text-xs text-neutral-500">
         By submitting your email address through this form, you agree to
-        Trackexpense&apos;s&nbsp;
-        <button type="button" className="text-orange-500 underline" onClick={onShowModal}>
+        TrackExpense&apos;s&nbsp;
+        <button type="button" className="text-blue-500 underline" onClick={onShowModal}>
           Terms & Privacy Policy
         </button>
         .

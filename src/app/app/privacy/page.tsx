@@ -33,9 +33,10 @@ const Privacy: React.FC = () => {
           verification code for secure access.
         </li>
         <li>
-          <strong>Expense entries</strong> — data you manually input into the App to track
-          your monthly expenses. This data is stored to provide the App&apos;s
-          functionality and allow you to view your expense history.
+          <strong>Expense entries</strong> — data you input manually or extract
+          automatically using receipt scanning (OCR) to track your monthly expenses. This
+          data is stored to provide the App&apos;s functionality and allow you to view
+          your expense history.
         </li>
         <li>
           <strong>Receipt images</strong> — when you capture or upload receipts within the

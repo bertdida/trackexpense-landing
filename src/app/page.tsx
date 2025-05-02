@@ -308,7 +308,7 @@ export default function Home() {
         <div className="container mx-auto flex flex-col items-center justify-center space-y-2 px-8 py-8 text-center">
           <div className="grid grid-cols-[25px,1fr] items-center gap-2">
             <Image
-              src="/trackexpense-logo.png"
+              src="/trackexpense-logo.png?v=1"
               alt="trackexpense logo"
               width={25}
               height={25}

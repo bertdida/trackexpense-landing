@@ -6,7 +6,7 @@ type LegalTextProps = {
   };
 };
 
-const className = {
+export const className = {
   primary:
     'bg-gradient-to-r from-indigo-500 to-sky-500 bg-clip-text text-lg font-bold text-transparent mt-8',
   secondary: 'text-base font-semibold mt-4',

@@ -42,7 +42,7 @@ const Privacy: React.FC = () => {
       </p>
 
       <p className={className.body}>
-        If you are unable to delete your account through the app, you can also email us at
+        If you are unable to delete your account through the app, you can also email us at{' '}
         <a href="mailto:hello@trackexpense.app">hello@trackexpense.app</a> to request
         deletion.
       </p>

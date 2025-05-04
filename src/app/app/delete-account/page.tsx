@@ -24,7 +24,9 @@ const Privacy: React.FC = () => {
 
       <ol className={className.list}>
         <li>Open the TrackExpense App.</li>
-        <li>Go to Profile {'>'} Delete Account.</li>
+        <li>
+          Go to Profile {'>'} Account Settings {'>'} Close Account.
+        </li>
         <li>Confirm the deletion.</li>
       </ol>
 

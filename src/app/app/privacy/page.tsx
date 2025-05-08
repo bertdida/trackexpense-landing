@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const Privacy: React.FC = () => {
-  const effectiveDate = 'May 02, 2025';
+  const effectiveDate = 'May 08, 2025';
 
   return (
     <main className={twMerge('container mx-auto max-w-screen-md px-8 py-8')}>
@@ -33,8 +33,8 @@ const Privacy: React.FC = () => {
       </p>
       <ul className={className.list}>
         <li>
-          <strong>Email Address</strong> — collected through the login form to send a
-          verification code for secure access.
+          <strong>Email address</strong> — collected through the login form for secure
+          access and account management.
         </li>
         <li>
           <strong>Expense entries</strong> — data you input manually or extract
@@ -47,6 +47,10 @@ const Privacy: React.FC = () => {
           App. Receipt images are processed temporarily using optical character
           recognition (OCR) to extract expense data and are not stored on our servers or
           retained after processing.
+        </li>
+        <li>
+          <strong>Country code</strong> — collected in profile settings, used to configure
+          timezone and currency display to enhance your experience.
         </li>
       </ul>
 
@@ -83,6 +87,10 @@ const Privacy: React.FC = () => {
         </li>
         <li>
           Analyze expense names to suggest or predict appropriate spending categories.
+        </li>
+        <li>
+          Configure timezone and currency display based on your preferred country code,
+          including using timezone settings to schedule reminder notifications.
         </li>
         <li>Improve user experience, app performance, and functionality.</li>
         <li>

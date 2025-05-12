@@ -52,6 +52,12 @@ const Privacy: React.FC = () => {
           <strong>Country code</strong> — collected in profile settings, used to configure
           timezone and currency display to enhance your experience.
         </li>
+        <li>
+          <strong>Device identifiers and push tokens</strong> — used to support app
+          features like notifications. Push tokens are only collected with your permission
+          and are shared with Firebase Cloud Messaging (FCM) to deliver reminders. These
+          are not used for tracking or advertising.
+        </li>
       </ul>
 
       <h5 className={className.secondary}>2. Permissions</h5>
@@ -102,6 +108,10 @@ const Privacy: React.FC = () => {
       <p className={className.body}>
         We do not sell, trade, or share your personal information with third parties,
         except as required by law or with your explicit consent.
+      </p>
+      <p className={className.body}>
+        We share push notification tokens with Firebase Cloud Messaging (FCM) to deliver
+        reminders, but do not share any other personal data with third parties.
       </p>
 
       <h5 className={className.secondary}>5. Data Storage and Security</h5>

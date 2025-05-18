@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const Privacy: React.FC = () => {
-  const effectiveDate = 'May 08, 2025';
+  const effectiveDate = 'May 18, 2025';
 
   return (
     <main className={twMerge('container mx-auto max-w-screen-md px-8 py-8')}>
@@ -58,6 +58,13 @@ const Privacy: React.FC = () => {
           and are shared with Firebase Cloud Messaging (FCM) to deliver reminders. These
           are not used for tracking or advertising.
         </li>
+        <li>
+          <strong>Forwarded receipt emails</strong> — when you forward receipt emails to
+          your unique <code>@trackexpense.app</code> email address, we process only the
+          email body to extract relevant expense details. Attachments are not processed or
+          stored. Only the information necessary for expense extraction is used, and the
+          email content is not retained after processing.
+        </li>
       </ul>
 
       <h5 className={className.secondary}>2. Permissions</h5>
@@ -102,12 +109,26 @@ const Privacy: React.FC = () => {
         <li>
           Communicate with you regarding your account, inquiries, or important updates.
         </li>
+        <li>
+          Extract expense data from the body of emails you forward to your unique{' '}
+          <code>@trackexpense.app</code> email address. Attachments are ignored and not
+          processed.
+        </li>
+        <li>
+          Automatically populate your expense history with the extracted information.
+        </li>
       </ul>
 
       <h5 className={className.secondary}>4. Data Sharing</h5>
       <p className={className.body}>
         We do not sell, trade, or share your personal information with third parties,
         except as required by law or with your explicit consent.
+      </p>
+      <p className={className.body}>
+        We do not share the content of forwarded emails with third parties. Email data is
+        processed securely within our system solely for the purpose of extracting expense
+        information from the email body. Attachments are ignored and not stored or
+        processed.
       </p>
       <p className={className.body}>
         We share push notification tokens with Firebase Cloud Messaging (FCM) to deliver
@@ -129,8 +150,9 @@ const Privacy: React.FC = () => {
       <p className={className.body}>
         We retain your personal data (email address and expense entries) for as long as
         your account remains active. Data is permanently deleted when you initiate account
-        deletion via the App (see Section 8) or submit a valid deletion request via email.
-        Some data may temporarily persist in secure backups before final deletion.
+        deletion via the App (see Section 8) or submit a valid deletion request by
+        emailing <a href="mailto:hello@trackexpense.app">hello@trackexpense.app</a>. Some
+        data may temporarily persist in secure backups before final deletion.
       </p>
 
       <h5 className={className.secondary}>7. Your Rights</h5>

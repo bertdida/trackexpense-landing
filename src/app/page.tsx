@@ -13,6 +13,7 @@ import StarIcon from '@/app/components/icons/StarIcon';
 import GooglePlayIcon from '@/app/components/icons/GooglePlayIcon';
 import AppStoreIcon from '@/app/components/icons/AppStoreIcon';
 import React from 'react';
+import Link from 'next/link';
 
 const benefitIconProps = {
   width: 50,
@@ -73,16 +74,16 @@ const steps: StepProps[] = [
     },
     title: 'Check off those bills',
     description:
-      'Quickly mark expenses as "Paid" with a single tap on the checkmark as soon as they\'re settled.',
+      'Easily mark your expenses as "💸 Settled" the moment they\'re paid — fast, simple, done.',
   },
   {
     NumberProps: {
       children: '3',
       className: 'from-sky-300 to-sky-100 text-sky-700',
     },
-    title: 'See the big picture',
+    title: 'See where your money goes',
     description:
-      'Gain insights into your spending habits with our easy-to-understand charts.',
+      "Get a clear visual breakdown of your spending, so you always know where your money's going",
   },
 ];
 
@@ -93,6 +94,39 @@ const featureIconProps = {
 };
 
 const features: FeatureProps[] = [
+  {
+    icon: <HistoryIcon {...featureIconProps} />,
+    title: 'Log Expenses Your Way',
+    description: 'Type it in, snap a pic of your receipt, or upload one.',
+  },
+  {
+    icon: <HistoryIcon {...featureIconProps} />,
+    title: 'Smart Category Suggestions',
+    description:
+      'Let AI auto-suggest the right category based on your expense — saving you time.',
+  },
+  {
+    icon: <HistoryIcon {...featureIconProps} />,
+    title: 'No Password Login',
+    description: 'Secure access via email code. No passwords to remember, ever.',
+  },
+  {
+    icon: <HistoryIcon {...featureIconProps} />,
+    title: 'Email Receipt Sync',
+    description:
+      'Forward receipts to your unique @trackexpense.app address and they’re logged automatically.',
+  },
+  {
+    icon: <HistoryIcon {...featureIconProps} />,
+    title: 'Global Currency Support',
+    description: 'Track expenses in your local currency — wherever life takes you.',
+  },
+  {
+    icon: <HistoryIcon {...featureIconProps} />,
+    title: ' Dark Mode & Themes',
+    description:
+      'Switch to dark mode or match the app to your style with customizable themes.',
+  },
   {
     icon: <BellIcon {...featureIconProps} />,
     title: 'Automatic Bill Reminders',
@@ -130,27 +164,6 @@ const features: FeatureProps[] = [
   },
 ];
 
-const pricings: PricingProps[] = [
-  {
-    ContainerProps: {
-      className: 'scale-90 bg-gray-100',
-    },
-    icon: <SeedingIcon width={50} height={50} />,
-    title: 'Free',
-    description: '₱0/forever',
-    features: ['All features except AI Insights', '10 expenses', '5 expense reminders'],
-  },
-  {
-    ContainerProps: {
-      className: 'bg-gradient-to-tr from-blue-500 to-sky-300 text-white shadow-xl',
-    },
-    icon: <StarIcon width={50} height={50} />,
-    title: 'Premium',
-    description: '₱149/mo',
-    features: ['All features', 'Unlimited expenses', 'Unlimited expense reminders'],
-  },
-];
-
 export default function Home() {
   return (
     <main>
@@ -173,7 +186,19 @@ export default function Home() {
             Don&apos;t let another month go by without a clear picture of your spending
           </h2>
 
-          <Form source="banner" />
+          <div className="flex flex-col items-center justify-center gap-4">
+            <Link
+              href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GooglePlayIcon width={200} height={60} />
+            </Link>
+
+            <p className="text-sm text-neutral-500">
+              Psst! iOS app launching super soon! 🤫
+            </p>
+          </div>
         </div>
       </div>
 
@@ -195,21 +220,28 @@ export default function Home() {
       <div className="py-20">
         <div className="container mx-auto max-w-screen-lg px-8">
           <div className="grid items-center gap-8 md:grid-cols-2">
-            <Image
-              unoptimized
-              quality={100}
-              src="/young-woman-waving-her-hand.png"
-              alt="young woman waving her hand"
-              width={368}
-              height={309}
-              className="mx-auto max-w-[200px] md:max-w-full"
-            />
+            <div className="relative my-12 flex w-full justify-center">
+              <Image
+                src="/app/home-screenshot.png"
+                alt="TrackExpense app home screenshot"
+                width={978}
+                height={2100}
+                className="absolute z-[1] max-w-[290px] -translate-x-[130px] -translate-y-[55px]"
+              />
+              <Image
+                src="/app/record-expense-screenshot.png"
+                alt="TrackExpense app home screenshot"
+                width={978}
+                height={2100}
+                className="z-[2] max-w-[290px] translate-x-[35px] translate-y-[75px] scale-[0.8]"
+              />
+            </div>
 
             <div className="space-y-8">
               <h3 className="text-2xl text-neutral-700 md:text-3xl">
-                <GradientText>Getting started</GradientText>
+                <GradientText>How it works</GradientText>
                 <br />
-                <span>as easy as 1-2-3</span>
+                <span className="text-base">Get started in 3 simple steps</span>
               </h3>
 
               <ul className="space-y-8">
@@ -219,8 +251,8 @@ export default function Home() {
               </ul>
 
               <p className="text-sm text-neutral-500">
-                At the start of each month, your expenses are automatically marked as
-                &quot;Pending&quot;.
+                At the start of each month, all expenses are automatically marked as
+                &quot;🕒 Pending&quot;, keeping you organized from day one.
               </p>
 
               <Form source="getting-started" />
@@ -260,16 +292,31 @@ export default function Home() {
                 Simple pricing
               </GradientText>
               <p className="text-base text-neutral-500">
-                Start with a free plan for your first ten expenses or upgrade to our
-                premium plan for unlimited tracking.
+                TrackExpense is <GradientText>completely free</GradientText> while we grow
+                and improve — we&apos;re building this for you, with you.
               </p>
             </div>
 
-            <div className="relative flex flex-col-reverse gap-8 md:start-[-1rem] md:grid md:grid-cols-2">
-              {pricings.map((pricing, index) => (
-                <Pricing key={index} {...pricing} />
-              ))}
-            </div>
+            <Pricing
+              ContainerProps={{
+                className:
+                  'bg-gradient-to-tr from-blue-500 to-sky-300 text-white shadow-xl mx-auto',
+              }}
+              icon={<StarIcon width={50} height={50} />}
+              title="Free"
+              description="₱0/month"
+              features={[
+                'All features',
+                'Unlimited expenses',
+                'Unlimited expense reminders',
+                'Smart receipt syncing',
+                'Full access to everything',
+              ]}
+            />
+
+            <p className="mx-auto mt-4 text-sm italic text-neutral-500">
+              Help us shape the future — your feedback means everything.
+            </p>
           </div>
         </div>
       </div>
@@ -277,12 +324,17 @@ export default function Home() {
       <div className="space-y-20 bg-gray-50 px-8 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center gap-4">
           <h3 className="text-center text-2xl font-bold leading-tight text-neutral-700 md:text-3xl">
-            Available in a few months
+            🎉 Now available on Android
           </h3>
 
-          <div className="flex flex-col gap-4 md:flex-row">
-            <GooglePlayIcon width={200} height={60} />
-            <AppStoreIcon width={200} height={60} />
+          <div className="flex flex-col items-center justify-center gap-4">
+            <Link
+              href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GooglePlayIcon width={200} height={60} />
+            </Link>
           </div>
         </div>
 
@@ -294,8 +346,7 @@ export default function Home() {
               </h3>
 
               <p className="text-center text-base text-neutral-500">
-                Get early access to TrackExpense and experience the clarity, confidence,
-                and control you deserve.
+                iOS version coming soon — sign up to get notified!
               </p>
             </div>
 

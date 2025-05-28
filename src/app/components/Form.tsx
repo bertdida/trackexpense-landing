@@ -26,7 +26,7 @@ const Form: React.FC<FormProps> = (props) => {
               🎉 Yay, you&apos;re on the waitlist!
             </p>
             <p class="text-neutral-500">
-              We can&apos;t wait to welcome you to Trackexpense
+              We'll let you know as soon as TrackExpense is available on iOS. Can't wait to have you!
             </p>
           </div>
         `;
@@ -93,7 +93,7 @@ const Form: React.FC<FormProps> = (props) => {
           className="btn right-1 min-h-[60px] rounded-full bg-gradient-to-tr from-indigo-500 to-sky-500 px-5 text-base text-white md:absolute"
         >
           {isSubmitting && <span className="loading loading-spinner"></span>}
-          Join the Waitlist
+          Join iOS waitlist
         </button>
       </div>
 

@@ -14,6 +14,12 @@ import GooglePlayIcon from '@/app/components/icons/GooglePlayIcon';
 import AppStoreIcon from '@/app/components/icons/AppStoreIcon';
 import React from 'react';
 import Link from 'next/link';
+import PencilPlusIcon from '@/app/components/icons/PencilPlusIcon';
+import SparklesIcon from '@/app/components/icons/SparklesIcon';
+import KeyIcon from '@/app/components/icons/KeyIcon';
+import MailForwardIcon from '@/app/components/icons/MailForwardIcon';
+import CurrencyDollarIcon from '@/app/components/icons/CurrencyDollarIcon';
+import MoonStarsIcon from '@/app/components/icons/MoonStarsIcon';
 
 const benefitIconProps = {
   width: 50,
@@ -95,34 +101,34 @@ const featureIconProps = {
 
 const features: FeatureProps[] = [
   {
-    icon: <HistoryIcon {...featureIconProps} />,
+    icon: <PencilPlusIcon {...featureIconProps} />,
     title: 'Log Expenses Your Way',
     description: 'Type it in, snap a pic of your receipt, or upload one.',
   },
   {
-    icon: <HistoryIcon {...featureIconProps} />,
+    icon: <SparklesIcon {...featureIconProps} />,
     title: 'Smart Category Suggestions',
     description:
       'Let AI auto-suggest the right category based on your expense — saving you time.',
   },
   {
-    icon: <HistoryIcon {...featureIconProps} />,
+    icon: <KeyIcon {...featureIconProps} />,
     title: 'No Password Login',
     description: 'Secure access via email code. No passwords to remember, ever.',
   },
   {
-    icon: <HistoryIcon {...featureIconProps} />,
+    icon: <MailForwardIcon {...featureIconProps} />,
     title: 'Email Receipt Sync',
     description:
       'Forward receipts to your unique @trackexpense.app address and they’re logged automatically.',
   },
   {
-    icon: <HistoryIcon {...featureIconProps} />,
+    icon: <CurrencyDollarIcon {...featureIconProps} />,
     title: 'Global Currency Support',
     description: 'Track expenses in your local currency — wherever life takes you.',
   },
   {
-    icon: <HistoryIcon {...featureIconProps} />,
+    icon: <MoonStarsIcon {...featureIconProps} />,
     title: ' Dark Mode & Themes',
     description:
       'Switch to dark mode or match the app to your style with customizable themes.',

@@ -37,7 +37,7 @@ const benefits: BenefitProps[] = [
     ),
     title: 'Never Miss a Bill Again',
     description:
-      'Set up automatic reminders and get real-time notifications, so you can pay your bills on time.',
+      "Set smart reminders and get real-time alerts so you're always on time with payments.",
   },
   {
     icon: (
@@ -48,7 +48,7 @@ const benefits: BenefitProps[] = [
     ),
     title: 'Understand Your Spending',
     description:
-      'Categorize your expenses, visualize your budget, and track your progress.',
+      'See a clear breakdown of your spending by category, and review past months to track your progress.',
   },
   {
     icon: (
@@ -57,9 +57,10 @@ const benefits: BenefitProps[] = [
         className={twMerge('text-sky-500', benefitIconProps.className)}
       />
     ),
-    title: 'Achieve Your Financial Goals',
+    isComingSoon: true,
+    title: 'Reach Your Financial Goals',
     description:
-      'Receive AI-powered insights and personalized recommendations tailored to your unique situation.',
+      'Get AI-powered insights and personalized tips that help you spend smarter and save better.',
   },
 ];
 
@@ -79,8 +80,12 @@ const steps: StepProps[] = [
       className: 'from-blue-300 to-blue-100 text-blue-700',
     },
     title: 'Check off those bills',
-    description:
-      'Easily mark your expenses as "💸 Settled" the moment they\'re paid — fast, simple, done.',
+    description: (
+      <p>
+        Easily mark your expenses as <span className="font-semibold">💸 Settled</span> the
+        moment they&apos;re paid — fast, simple, done.
+      </p>
+    ),
   },
   {
     NumberProps: {
@@ -89,7 +94,7 @@ const steps: StepProps[] = [
     },
     title: 'See where your money goes',
     description:
-      "Get a clear visual breakdown of your spending, so you always know where your money's going",
+      "Get a clear visual breakdown of your spending, so you always know where your money's going.",
   },
 ];
 
@@ -101,6 +106,11 @@ const featureIconProps = {
 
 const features: FeatureProps[] = [
   {
+    icon: <CurrencyDollarIcon {...featureIconProps} />,
+    title: 'Global Currency Support',
+    description: 'Track expenses in your local currency, wherever you are.',
+  },
+  {
     icon: <PencilPlusIcon {...featureIconProps} />,
     title: 'Log Expenses Your Way',
     description: 'Type it in, snap a pic of your receipt, or upload one.',
@@ -108,36 +118,19 @@ const features: FeatureProps[] = [
   {
     icon: <SparklesIcon {...featureIconProps} />,
     title: 'Smart Category Suggestions',
-    description:
-      'Let AI auto-suggest the right category based on your expense — saving you time.',
-  },
-  {
-    icon: <KeyIcon {...featureIconProps} />,
-    title: 'No Password Login',
-    description: 'Secure access via email code. No passwords to remember, ever.',
-  },
-  {
-    icon: <MailForwardIcon {...featureIconProps} />,
-    title: 'Email Receipt Sync',
-    description:
-      'Forward receipts to your unique @trackexpense.app address and they’re logged automatically.',
-  },
-  {
-    icon: <CurrencyDollarIcon {...featureIconProps} />,
-    title: 'Global Currency Support',
-    description: 'Track expenses in your local currency — wherever life takes you.',
-  },
-  {
-    icon: <MoonStarsIcon {...featureIconProps} />,
-    title: ' Dark Mode & Themes',
-    description:
-      'Switch to dark mode or match the app to your style with customizable themes.',
+    description: 'Let AI auto-suggest the right category for your expenses.',
   },
   {
     icon: <BellIcon {...featureIconProps} />,
     title: 'Automatic Bill Reminders',
     description:
       "Set up reminders and get notifications so you're always on time with payments.",
+  },
+  {
+    icon: <MailForwardIcon {...featureIconProps} />,
+    title: 'Email Receipt Sync',
+    description:
+      'Forward receipts to your unique @trackexpense.app address and they’re logged automatically.',
   },
   {
     icon: <CircleCheckIcon {...featureIconProps} />,
@@ -163,6 +156,17 @@ const features: FeatureProps[] = [
       "Review previous months' expenses, spot any unsettled items, and track progress towards your financial goals.",
   },
   {
+    icon: <KeyIcon {...featureIconProps} />,
+    title: 'No Password Login',
+    description: 'Secure access via email code. No passwords to remember, ever.',
+  },
+  {
+    icon: <MoonStarsIcon {...featureIconProps} />,
+    title: ' Dark Mode & Themes',
+    description:
+      'Switch to dark mode or match the app to your style with customizable themes.',
+  },
+  {
     icon: <WandIcon {...featureIconProps} />,
     title: 'AI-Powered Insights',
     description:
@@ -185,8 +189,8 @@ export default function Home() {
           />
 
           <h1 className="text-4xl font-bold leading-tight text-neutral-700 md:text-5xl">
-            A to-do list app for your <br className="hidden md:block" />
-            monthly expenses
+            Track your monthly expenses <br className="hidden md:block" />
+            like a to-do list
           </h1>
           <h2 className="text-2xl leading-tight text-neutral-500 md:text-3xl">
             Don&apos;t let another month go by without a clear picture of your spending
@@ -210,11 +214,17 @@ export default function Home() {
 
       <div className="bg-[#f5fdff] py-20">
         <div className="container mx-auto max-w-screen-lg space-y-16 px-8">
-          <h3 className="text-center text-2xl text-neutral-700 md:text-3xl">
-            Budgeting made
-            <br className="md:hidden" />
-            <GradientText>&nbsp;simple and effective</GradientText>
-          </h3>
+          <div>
+            <h3 className="text-center text-2xl text-neutral-700 md:text-3xl">
+              Budgeting made
+              <br className="md:hidden" />
+              <GradientText>&nbsp;simple and effective</GradientText>
+            </h3>
+            <p className="mt-4 text-center text-base text-neutral-500">
+              Ditch the spreadsheets. Track your expenses with ease — no learning curve
+              required.
+            </p>
+          </div>
           <div className="grid gap-20 md:grid-cols-3">
             {benefits.map((benefit, index) => (
               <Benefit key={index} {...benefit} />
@@ -236,7 +246,7 @@ export default function Home() {
               />
               <Image
                 src="/app/record-expense-screenshot.png"
-                alt="TrackExpense app home screenshot"
+                alt="TrackExpense app record expense screenshot"
                 width={978}
                 height={2100}
                 className="z-[2] max-w-[290px] translate-x-[35px] translate-y-[75px] scale-[0.8]"
@@ -258,7 +268,8 @@ export default function Home() {
 
               <p className="text-sm text-neutral-500">
                 At the start of each month, all expenses are automatically marked as
-                &quot;🕒 Pending&quot;, keeping you organized from day one.
+                &nbsp;<span className="font-semibold">🕒 Pending</span>, keeping you
+                organized from day one.
               </p>
 
               <Form source="getting-started" />
@@ -413,15 +424,25 @@ type BenefitProps = {
   icon: React.ReactNode;
   title: string;
   description: string;
+  isComingSoon?: boolean;
 };
 
-const Benefit: React.FC<BenefitProps> = ({ icon, title, description }) => {
+const Benefit: React.FC<BenefitProps> = ({ icon, title, description, isComingSoon }) => {
   return (
     <div className="flex flex-col gap-4">
       {icon}
       <h3 className="text-xl font-bold text-neutral-700">{title}</h3>
       <p className="text-neutral-700">{description}</p>
+      {isComingSoon && <CommingSoon />}
     </div>
+  );
+};
+
+const CommingSoon: React.FC = () => {
+  return (
+    <span className="flex h-[25px] w-fit items-center justify-center rounded-2xl bg-yellow-100 pl-2 pr-2 text-xs font-bold text-yellow-500">
+      Coming soon
+    </span>
   );
 };
 
@@ -431,7 +452,7 @@ type StepProps = {
     HTMLSpanElement
   >;
   title: string;
-  description: string;
+  description: React.ReactNode | string;
 };
 
 const Step: React.FC<StepProps> = ({ NumberProps, title, description }) => {
@@ -446,7 +467,7 @@ const Step: React.FC<StepProps> = ({ NumberProps, title, description }) => {
       />
       <div className="relative -top-[5px] space-y-2">
         <h4 className="text-lg font-bold text-neutral-700">{title}</h4>
-        <p>{description}</p>
+        {typeof description === 'string' ? <p>{description}</p> : description}
       </div>
     </li>
   );

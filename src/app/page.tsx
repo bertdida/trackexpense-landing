@@ -18,6 +18,7 @@ import KeyIcon from '@/app/components/icons/KeyIcon';
 import MailForwardIcon from '@/app/components/icons/MailForwardIcon';
 import CurrencyDollarIcon from '@/app/components/icons/CurrencyDollarIcon';
 import MoonStarsIcon from '@/app/components/icons/MoonStarsIcon';
+import ScreenshotPreviews from '@/app/components/ScreenshotPreviews';
 
 const benefitIconProps = {
   width: 50,
@@ -308,11 +309,11 @@ export default function Home() {
           <div className="grid items-center gap-8 py-20">
             <div className="space-y-4">
               <GradientText as="h3" className="text-2xl md:text-3xl">
-                Simple pricing
+                Simple, transparent pricing
               </GradientText>
               <p className="text-base text-neutral-500">
-                TrackExpense is <GradientText>completely free</GradientText> while we grow
-                and improve — we&apos;re building this for you, with you.
+                TrackExpense is <GradientText>100% free</GradientText> while we grow — no
+                hidden fees, no trials, no limits. Just everything you need, for free.
               </p>
             </div>
 
@@ -325,28 +326,32 @@ export default function Home() {
               title="Free"
               description="₱0/month"
               features={[
-                'All features',
-                'Unlimited expenses',
-                'Unlimited expense reminders',
-                'Smart receipt syncing',
-                'Full access to everything',
+                'All features unlocked',
+                'Track unlimited expenses',
+                'Set unlimited reminders',
+                'Smart email receipt syncing',
+                'No restrictions — full access',
               ]}
             />
 
             <p className="mx-auto mt-4 text-sm italic text-neutral-500">
-              Help us shape the future — your feedback means everything.
+              We&apos;re building this with you — your feedback shapes what comes next.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="space-y-20 bg-gray-50 px-8 py-20">
+      <div className="space-y-20 bg-sky-50 px-8 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center gap-4">
-          <h3 className="text-center text-2xl font-bold leading-tight text-neutral-700 md:text-3xl">
-            🎉 Now available on Android
+          <h3 className="text-center text-2xl font-bold leading-tight md:text-3xl">
+            🎉 <GradientText>Now available on Android</GradientText>
           </h3>
 
-          <div className="flex flex-col items-center justify-center gap-4">
+          <p className="text-center text-base text-neutral-500">
+            Stop guessing, start tracking. Get the TrackExpense app today.
+          </p>
+
+          <div className="mt-3 flex flex-col items-center justify-center gap-4">
             <Link
               href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
               target="_blank"
@@ -356,16 +361,21 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </div>
 
+      <ScreenshotPreviews />
+
+      <div className="space-y-20 bg-sky-50 px-8 py-20">
         <div className="container mx-auto flex max-w-screen-md items-center">
           <div className="w-full space-y-8">
             <div className="space-y-3">
               <h3 className="text-center text-2xl leading-tight md:text-3xl">
-                <GradientText>&nbsp;Take control of your finances</GradientText>
+                <GradientText>iOS app coming soon</GradientText>
               </h3>
 
               <p className="text-center text-base text-neutral-500">
-                iOS version coming soon — sign up to get notified!
+                We&apos;re working hard to bring TrackExpense to iPhone users. Sign up and
+                we&apos;ll keep you in the loop — no spam, just updates.
               </p>
             </div>
 

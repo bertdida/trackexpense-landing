@@ -8,10 +8,8 @@ import WandIcon from '@/app/components/icons/WandIcon';
 import CircleCheckIcon from '@/app/components/icons/CircleCheckIcon';
 import CategoryIcon from '@/app/components/icons/CategoryIcon';
 import HistoryIcon from '@/app/components/icons/HistoryIcon';
-import SeedingIcon from '@/app/components/icons/SeedingIcon';
 import StarIcon from '@/app/components/icons/StarIcon';
 import GooglePlayIcon from '@/app/components/icons/GooglePlayIcon';
-import AppStoreIcon from '@/app/components/icons/AppStoreIcon';
 import React from 'react';
 import Link from 'next/link';
 import PencilPlusIcon from '@/app/components/icons/PencilPlusIcon';
@@ -112,25 +110,29 @@ const features: FeatureProps[] = [
   },
   {
     icon: <PencilPlusIcon {...featureIconProps} />,
-    title: 'Log Expenses Your Way',
-    description: 'Type it in, snap a pic of your receipt, or upload one.',
-  },
-  {
-    icon: <SparklesIcon {...featureIconProps} />,
-    title: 'Smart Category Suggestions',
-    description: 'Let AI auto-suggest the right category for your expenses.',
-  },
-  {
-    icon: <BellIcon {...featureIconProps} />,
-    title: 'Automatic Bill Reminders',
-    description:
-      "Set up reminders and get notifications so you're always on time with payments.",
+    title: 'Easy Expense Logging',
+    description: 'Add expenses manually, upload receipts, or snap a photo—your call.',
   },
   {
     icon: <MailForwardIcon {...featureIconProps} />,
     title: 'Email Receipt Sync',
+    description: (
+      <p>
+        Auto-log expenses by forwarding email receipts to your personal{' '}
+        <code>@trackexpense.app</code> address.
+      </p>
+    ),
+  },
+  {
+    icon: <SparklesIcon {...featureIconProps} />,
+    title: 'Smart Category Suggestions',
+    description: 'Let AI instantly suggest the right category for your expenses.',
+  },
+  {
+    icon: <BellIcon {...featureIconProps} />,
+    title: 'Bill Reminders',
     description:
-      'Forward receipts to your unique @trackexpense.app address and they’re logged automatically.',
+      "Set up reminders and get notifications so you're always on time with payments.",
   },
   {
     icon: <CircleCheckIcon {...featureIconProps} />,
@@ -140,33 +142,33 @@ const features: FeatureProps[] = [
   },
   {
     icon: <CategoryIcon {...featureIconProps} />,
-    title: 'Customizable Spending Categories',
+    title: 'Expense Categories',
     description:
-      'Choose from predefined categories or create your own for personalized tracking.',
+      'Organize your expenses with thoughtfully designed, ready-to-use categories.',
   },
   {
     icon: <ChartIcon {...featureIconProps} />,
-    title: 'Visual Budget Tracking',
-    description: "See exactly where your money's going with clear and insightful graphs.",
+    title: 'Expense Breakdown',
+    description: 'See where your money goes with a clear breakdown of your expenses.',
   },
   {
     icon: <HistoryIcon {...featureIconProps} />,
     title: 'Spending History Review',
     description:
-      "Review previous months' expenses, spot any unsettled items, and track progress towards your financial goals.",
+      'Look back at previous months to find missed expenses and monitor your financial progress.',
   },
   {
     icon: <KeyIcon {...featureIconProps} />,
-    title: 'No Password Login',
+    title: 'Password-Free Login',
     description: 'Secure access via email code. No passwords to remember, ever.',
   },
   {
     icon: <MoonStarsIcon {...featureIconProps} />,
-    title: ' Dark Mode & Themes',
-    description:
-      'Switch to dark mode or match the app to your style with customizable themes.',
+    title: 'Dark Mode & Themes',
+    description: 'Switch to dark mode or choose from a selection of color themes.',
   },
   {
+    isComingSoon: true,
     icon: <WandIcon {...featureIconProps} />,
     title: 'AI-Powered Insights',
     description:
@@ -188,7 +190,7 @@ export default function Home() {
             className="max-w-full sm:max-w-[unset]"
           />
 
-          <h1 className="text-4xl font-bold leading-tight text-neutral-700 md:text-5xl">
+          <h1 className="text-4xl font-bold leading-tight text-neutral-700 md:text-nowrap md:text-5xl">
             Track your monthly expenses <br className="hidden md:block" />
             like a to-do list
           </h1>
@@ -476,10 +478,11 @@ const Step: React.FC<StepProps> = ({ NumberProps, title, description }) => {
 type FeatureProps = {
   icon: React.ReactNode;
   title: string;
-  description: string;
+  description: React.ReactNode | string;
+  isComingSoon?: boolean;
 };
 
-const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => {
+const Feature: React.FC<FeatureProps> = ({ icon, title, description, isComingSoon }) => {
   return (
     <div className="card">
       <div className="card-body flex flex-col gap-4 pl-0">
@@ -487,7 +490,8 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => {
           {icon}
         </div>
         <h4 className="card-title">{title}</h4>
-        <p>{description}</p>
+        {typeof description === 'string' ? <p>{description}</p> : description}
+        {isComingSoon && <CommingSoon />}
       </div>
     </div>
   );

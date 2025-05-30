@@ -36,6 +36,14 @@ const screenshotPreviews: { src: string; alt: string }[] = [
     src: '/app/notifications-screenshot.png',
     alt: 'TrackExpense app notifications screenshot',
   },
+  {
+    src: '/app/record-expense-screenshot.png',
+    alt: 'TrackExpense app record expense screenshot',
+  },
+  {
+    src: '/app/home-green-screenshot.png',
+    alt: 'TrackExpense app home green theme screenshot',
+  },
 ];
 
 const ScreenshotPreviews: React.FC = () => {

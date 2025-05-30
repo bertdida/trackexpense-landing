@@ -200,14 +200,7 @@ export default function Home() {
           </h2>
 
           <div className="flex flex-col items-center justify-center gap-4">
-            <Link
-              href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GooglePlayIcon width={200} height={60} />
-            </Link>
-
+            <GooglePlayButton />
             <p className="text-sm text-neutral-500">
               Psst! iOS app launching super soon! 🤫
             </p>
@@ -352,13 +345,7 @@ export default function Home() {
           </p>
 
           <div className="mt-3 flex flex-col items-center justify-center gap-4">
-            <Link
-              href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GooglePlayIcon width={200} height={60} />
-            </Link>
+            <GooglePlayButton />
           </div>
         </div>
       </div>
@@ -407,6 +394,17 @@ export default function Home() {
     </main>
   );
 }
+
+const GooglePlayButton: React.FC = () => (
+  <Link
+    href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Download on Google Play"
+  >
+    <GooglePlayIcon width={200} height={60} />
+  </Link>
+);
 
 const CurrentYear: React.FC = () => <>{new Date().getFullYear()}</>;
 

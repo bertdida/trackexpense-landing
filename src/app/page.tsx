@@ -229,11 +229,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <ul className="grid gap-8 md:grid-cols-3">
             {features.map((feature, index) => (
-              <Feature key={index} {...feature} />
+              <li key={index}>
+                <Feature {...feature} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

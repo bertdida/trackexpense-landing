@@ -9,9 +9,7 @@ import CircleCheckIcon from '@/app/components/icons/CircleCheckIcon';
 import CategoryIcon from '@/app/components/icons/CategoryIcon';
 import HistoryIcon from '@/app/components/icons/HistoryIcon';
 import StarIcon from '@/app/components/icons/StarIcon';
-import GooglePlayIcon from '@/app/components/icons/GooglePlayIcon';
 import React from 'react';
-import Link from 'next/link';
 import PencilPlusIcon from '@/app/components/icons/PencilPlusIcon';
 import SparklesIcon from '@/app/components/icons/SparklesIcon';
 import KeyIcon from '@/app/components/icons/KeyIcon';
@@ -19,49 +17,10 @@ import MailForwardIcon from '@/app/components/icons/MailForwardIcon';
 import CurrencyDollarIcon from '@/app/components/icons/CurrencyDollarIcon';
 import MoonStarsIcon from '@/app/components/icons/MoonStarsIcon';
 import ScreenshotPreviews from '@/app/components/ScreenshotPreviews';
-
-const benefitIconProps = {
-  width: 50,
-  height: 50,
-  className: 'mb-4',
-};
-
-const benefits: BenefitProps[] = [
-  {
-    icon: (
-      <BellIcon
-        {...benefitIconProps}
-        className={twMerge('text-indigo-500', benefitIconProps.className)}
-      />
-    ),
-    title: 'Never Miss a Bill Again',
-    description:
-      "Set smart reminders and get real-time alerts so you're always on time with payments.",
-  },
-  {
-    icon: (
-      <ChartIcon
-        {...benefitIconProps}
-        className={twMerge('text-blue-500', benefitIconProps.className)}
-      />
-    ),
-    title: 'Understand Your Spending',
-    description:
-      'See a clear breakdown of your spending by category, and review past months to track your progress.',
-  },
-  {
-    icon: (
-      <WandIcon
-        {...benefitIconProps}
-        className={twMerge('text-sky-500', benefitIconProps.className)}
-      />
-    ),
-    isComingSoon: true,
-    title: 'Reach Your Financial Goals',
-    description:
-      'Get AI-powered insights and personalized tips that help you spend smarter and save better.',
-  },
-];
+import GradientText from '@/app/components/GradientText';
+import CommingSoon from '@/app/components/CommingSoon';
+import BudgetingBenefitsSection from '@/app/components/BudgetingBenefitsSection';
+import PlayDownloadButton from '@/app/components/PlayDownloadButton';
 
 const steps: StepProps[] = [
   {
@@ -200,7 +159,7 @@ export default function Home() {
           </h2>
 
           <div className="flex flex-col items-center justify-center gap-4">
-            <GooglePlayButton />
+            <PlayDownloadButton />
             <p className="text-sm text-neutral-500">
               Psst! iOS app launching super soon! 🤫
             </p>
@@ -208,26 +167,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#f5fdff] py-20">
-        <div className="container mx-auto max-w-screen-lg space-y-16 px-8">
-          <div>
-            <h3 className="text-center text-2xl text-neutral-700 md:text-3xl">
-              Budgeting made
-              <br className="md:hidden" />
-              <GradientText>&nbsp;simple and effective</GradientText>
-            </h3>
-            <p className="mt-4 text-center text-base text-neutral-500">
-              Ditch the spreadsheets. Track your expenses with ease — no learning curve
-              required.
-            </p>
-          </div>
-          <div className="grid gap-20 md:grid-cols-3">
-            {benefits.map((benefit, index) => (
-              <Benefit key={index} {...benefit} />
-            ))}
-          </div>
-        </div>
-      </div>
+      <BudgetingBenefitsSection />
 
       <div className="py-20">
         <div className="container mx-auto max-w-screen-lg px-8">
@@ -274,12 +214,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden">
+      <section aria-labelledby="features-heading" className="relative overflow-hidden">
         <div className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[100vh] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-blue-200 opacity-10 blur-3xl"></div>
 
         <div className="container relative z-10 mx-auto max-w-screen-lg px-8 py-20">
           <div className="mb-8 space-y-4">
-            <h3 className="text-2xl text-neutral-700 md:text-3xl">
+            <h3 id="features-heading" className="text-2xl text-neutral-700 md:text-3xl">
               <GradientText>Financial clarity</GradientText>
               &nbsp;at your fingertips
             </h3>
@@ -295,48 +235,55 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div>
-        <div className="container mx-auto max-w-screen-md gap-8 px-8">
-          <div className="grid items-center gap-8 py-20">
-            <div className="space-y-4">
-              <GradientText as="h3" className="text-2xl md:text-3xl">
-                Simple, transparent pricing
-              </GradientText>
-              <p className="text-base text-neutral-500">
-                TrackExpense is <GradientText>100% free</GradientText> while we grow — no
-                hidden fees, no trials, no limits. Just everything you need, for free.
-              </p>
-            </div>
-
-            <Pricing
-              ContainerProps={{
-                className:
-                  'bg-gradient-to-tr from-blue-500 to-sky-300 text-white shadow-xl mx-auto',
-              }}
-              icon={<StarIcon width={50} height={50} />}
-              title="Free"
-              description="₱0/month"
-              features={[
-                'All features unlocked',
-                'Track unlimited expenses',
-                'Set unlimited reminders',
-                'Smart email receipt syncing',
-                'No restrictions — full access',
-              ]}
-            />
-
-            <p className="mx-auto mt-4 text-sm italic text-neutral-500">
-              We&apos;re building this with you — your feedback shapes what comes next.
+      <section
+        aria-labelledby="pricing-heading"
+        className="container mx-auto max-w-screen-md gap-8 px-8"
+      >
+        <div className="grid items-center gap-8 py-20">
+          <div className="space-y-4">
+            <GradientText id="pricing-heading" as="h3" className="text-2xl md:text-3xl">
+              Simple, transparent pricing
+            </GradientText>
+            <p className="text-base text-neutral-500">
+              TrackExpense is <GradientText>100% free</GradientText> while we grow — no
+              hidden fees, no trials, no limits. Just everything you need, for free.
             </p>
           </div>
-        </div>
-      </div>
 
-      <div className="space-y-20 bg-sky-50 px-8 py-20">
+          <Pricing
+            ContainerProps={{
+              className:
+                'bg-gradient-to-tr from-blue-500 to-sky-300 text-white shadow-xl mx-auto',
+            }}
+            icon={<StarIcon width={50} height={50} />}
+            title="Free"
+            description="₱0/month"
+            features={[
+              'All features unlocked',
+              'Track unlimited expenses',
+              'Set unlimited reminders',
+              'Smart email receipt syncing',
+              'No restrictions — full access',
+            ]}
+          />
+
+          <p className="mx-auto mt-4 text-sm italic text-neutral-500">
+            We&apos;re building this with you — your feedback shapes what comes next.
+          </p>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="android-announcement-heading"
+        className="space-y-20 bg-sky-50 px-8 py-20"
+      >
         <div className="container mx-auto flex flex-col items-center justify-center gap-4">
-          <h3 className="text-center text-2xl font-bold leading-tight md:text-3xl">
+          <h3
+            id="android-announcement-heading"
+            className="text-center text-2xl font-bold leading-tight md:text-3xl"
+          >
             🎉 <GradientText>Now available on Android</GradientText>
           </h3>
 
@@ -345,18 +292,24 @@ export default function Home() {
           </p>
 
           <div className="mt-3 flex flex-col items-center justify-center gap-4">
-            <GooglePlayButton />
+            <PlayDownloadButton />
           </div>
         </div>
-      </div>
+      </section>
 
       <ScreenshotPreviews />
 
-      <div className="space-y-20 bg-sky-50 px-8 py-20">
+      <section
+        aria-labelledby="ios-cta-heading"
+        className="space-y-20 bg-sky-50 px-8 py-20"
+      >
         <div className="container mx-auto flex max-w-screen-md items-center">
           <div className="w-full space-y-8">
             <div className="space-y-3">
-              <h3 className="text-center text-2xl leading-tight md:text-3xl">
+              <h3
+                id="ios-cta-heading"
+                className="text-center text-2xl leading-tight md:text-3xl"
+              >
                 <GradientText>iOS app coming soon</GradientText>
               </h3>
 
@@ -369,7 +322,7 @@ export default function Home() {
             <Form source="footer" />
           </div>
         </div>
-      </div>
+      </section>
 
       <footer>
         <div className="container mx-auto flex flex-col items-center justify-center space-y-2 px-8 py-8 text-center">
@@ -395,66 +348,7 @@ export default function Home() {
   );
 }
 
-const GooglePlayButton: React.FC = () => (
-  <Link
-    href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Download on Google Play"
-  >
-    <GooglePlayIcon width={200} height={60} />
-  </Link>
-);
-
 const CurrentYear: React.FC = () => <>{new Date().getFullYear()}</>;
-
-type GradientTextProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLSpanElement>,
-  HTMLSpanElement
-> & {
-  as?: React.ElementType;
-};
-
-const GradientText: React.FC<GradientTextProps> = (props) => {
-  const Tag = props.as || 'span';
-
-  return (
-    <Tag
-      {...props}
-      // @ts-ignore
-      className={twMerge(
-        'bg-gradient-to-r from-indigo-500 to-sky-500 bg-clip-text font-bold text-transparent',
-        props.className,
-      )}
-    />
-  );
-};
-
-type BenefitProps = {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  isComingSoon?: boolean;
-};
-
-const Benefit: React.FC<BenefitProps> = ({ icon, title, description, isComingSoon }) => {
-  return (
-    <div className="flex flex-col gap-4">
-      {icon}
-      <h3 className="text-xl font-bold text-neutral-700">{title}</h3>
-      <p className="text-neutral-700">{description}</p>
-      {isComingSoon && <CommingSoon />}
-    </div>
-  );
-};
-
-const CommingSoon: React.FC = () => {
-  return (
-    <span className="flex h-[25px] w-fit items-center justify-center rounded-2xl bg-yellow-100 pl-2 pr-2 text-xs font-bold text-yellow-500">
-      Coming soon
-    </span>
-  );
-};
 
 type StepProps = {
   NumberProps: React.DetailedHTMLProps<

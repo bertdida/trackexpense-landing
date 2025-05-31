@@ -18,7 +18,7 @@ import CurrencyDollarIcon from '@/app/components/icons/CurrencyDollarIcon';
 import MoonStarsIcon from '@/app/components/icons/MoonStarsIcon';
 import ScreenshotPreviews from '@/app/components/ScreenshotPreviews';
 import GradientText from '@/app/components/GradientText';
-import CommingSoon from '@/app/components/CommingSoon';
+import ComingSoon from '@/app/components/ComingSoon';
 import BudgetingBenefitsSection from '@/app/components/BudgetingBenefitsSection';
 import PlayDownloadButton from '@/app/components/PlayDownloadButton';
 
@@ -395,7 +395,7 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, isComingSoo
         </div>
         <h4 className="card-title">{title}</h4>
         {typeof description === 'string' ? <p>{description}</p> : description}
-        {isComingSoon && <CommingSoon />}
+        {isComingSoon && <ComingSoon />}
       </div>
     </div>
   );

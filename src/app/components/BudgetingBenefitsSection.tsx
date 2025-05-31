@@ -7,7 +7,7 @@ import BellIcon from '@/app/components/icons/BellIcon';
 import ChartIcon from '@/app/components/icons/ChartIcon';
 import WandIcon from '@/app/components/icons/WandIcon';
 import GradientText from '@/app/components/GradientText';
-import CommingSoon from '@/app/components/CommingSoon';
+import ComingSoon from '@/app/components/ComingSoon';
 import PlayDownloadButton from '@/app/components/PlayDownloadButton';
 
 const benefitIconProps = {
@@ -131,7 +131,7 @@ const Benefit: React.FC<BenefitProps> = ({ icon, title, description, isComingSoo
       {icon}
       <h3 className="text-xl font-bold text-neutral-700">{title}</h3>
       <p className="text-neutral-700">{description}</p>
-      {isComingSoon && <CommingSoon />}
+      {isComingSoon && <ComingSoon />}
     </article>
   );
 };

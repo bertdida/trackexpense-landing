@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+
+import React, { useMemo } from 'react';
 import GooglePlayIcon from '@/app/components/icons/GooglePlayIcon';
 import Link from 'next/link';
 
@@ -8,10 +9,18 @@ type PlayDownloadButtonProps = {
   className?: string;
 };
 
+const originalHeight = 60;
+const originalWidth = 202.5;
+
 const PlayDownloadButton: React.FC<PlayDownloadButtonProps> = ({
   height = 60,
   className,
 }) => {
+  const adjustedWidth = useMemo(
+    () => (originalWidth * height) / originalHeight,
+    [height],
+  );
+
   return (
     <Link
       href="https://play.google.com/store/apps/details?id=app.trackexpense.mobile"
@@ -20,7 +29,7 @@ const PlayDownloadButton: React.FC<PlayDownloadButtonProps> = ({
       aria-label="Download on Google Play"
       className={className}
     >
-      <GooglePlayIcon width="auto" height={height} />
+      <GooglePlayIcon width={adjustedWidth} height={height} />
     </Link>
   );
 };

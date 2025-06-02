@@ -8,9 +8,9 @@ const poppins = Poppins({
   subsets: ['latin'],
 });
 
-const title = 'TrackExpense - A to-do list app for your monthly expenses';
+const title = 'TrackExpense - Track your monthly expenses like a to-do list';
 const description =
-  'Simplify your budgeting with TrackExpense. Just like your favorite to-do list, but for your bills';
+  'TrackExpense makes budgeting simple. Organize your monthly expenses like a to-do list, set bill reminders, and track spending effortlessly.';
 
 export const metadata: Metadata = {
   title,

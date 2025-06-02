@@ -12,7 +12,17 @@ const title = 'TrackExpense - Track your monthly expenses like a to-do list';
 const description =
   'TrackExpense makes budgeting simple. Organize your monthly expenses like a to-do list, set bill reminders, and track spending effortlessly.';
 
+const images = [
+  {
+    url: 'https://trackexpense.app/trackexpense.png',
+    width: 1024,
+    height: 500,
+    alt: 'TrackExpense - Smart Expense Tracker App',
+  },
+];
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://trackexpense.app'),
   title,
   description,
   openGraph: {
@@ -22,14 +32,13 @@ export const metadata: Metadata = {
     siteName: 'TrackExpense',
     title,
     description,
-    images: [
-      {
-        url: 'https://trackexpense.app/trackexpense.png',
-        width: 368,
-        height: 207,
-        alt: 'TrackExpense',
-      },
-    ],
+    images,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images,
   },
 };
 

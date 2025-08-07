@@ -51,6 +51,9 @@ const ScreenshotPreviews: React.FC = () => {
   const [scrollOffset, setScrollOffset] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Repeat the screenshots multiple times to ensure viewport is always filled
+  const repeatedScreenshots = Array(4).fill(screenshotPreviews).flat();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -100,15 +103,16 @@ const ScreenshotPreviews: React.FC = () => {
         }}
         className="relative -left-[200px] flex w-max gap-6 px-10"
       >
-        {screenshotPreviews.map((image, index) => (
+        {repeatedScreenshots.map((image, index) => (
           <Image
-            key={index}
+            key={`${image.src}-${index}`}
             src={image.src}
-            alt={image.alt}
+            alt={index < screenshotPreviews.length ? image.alt : ''}
             width={978}
             height={2100}
             className="w-40 translate-y-2 rotate-[-10deg] md:w-52"
             loading="lazy"
+            aria-hidden={index >= screenshotPreviews.length}
           />
         ))}
       </div>

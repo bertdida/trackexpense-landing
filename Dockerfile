@@ -14,7 +14,7 @@ FROM base AS deps
 COPY package.json package-lock.json ./
 
 # Install only production dependencies
-RUN npm ci --omit=dev
+RUN npm ci
 
 # ---- Build Application ----
 FROM base AS builder
@@ -48,9 +48,6 @@ ENV HOSTNAME=0.0.0.0
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-
-# Set permissions for cache folder
-RUN mkdir .next && chown nextjs:nodejs .next
 
 # Run as non-root user
 USER nextjs

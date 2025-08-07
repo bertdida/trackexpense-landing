@@ -41,7 +41,7 @@ RUN addgroup --system --gid 1001 nodejs \
 # Set environment variables
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
+ENV PORT=4000
 ENV HOSTNAME=0.0.0.0
 
 # Copy only the necessary files from the standalone build
@@ -56,7 +56,7 @@ RUN mkdir .next && chown nextjs:nodejs .next
 USER nextjs
 
 # Expose port
-EXPOSE 3000
+EXPOSE 4000
 
 # Start the server
 CMD ["node", "server.js"]
